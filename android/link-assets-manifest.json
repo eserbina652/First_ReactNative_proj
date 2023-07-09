@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Comfortaa-VariableFont_wght.ttf",
+      "sha1": "1d1a61201baea75eb0aebdf75cef600c09cbb1da"
+    },
+    {
+      "path": "src/assets/fonts/TheGirlNextDoor-Regular.ttf",
+      "sha1": "8ffcc48d588cee7a22b31e167e4acc8b72382bd2"
+    },
+    {
+      "path": "src/assets/fonts/index.js",
+      "sha1": "b7be56e55d0373a0ea14712c9d18c6b4fec54270"
+    }
+  ]
+}
