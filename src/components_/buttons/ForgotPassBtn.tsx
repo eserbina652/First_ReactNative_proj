@@ -14,7 +14,7 @@ export default ForgotPassBtn;
 
 const styles = StyleSheet.create({
   forgotPass: {
-    fontFamily: fonts.TheGirlNextDoorRegular,
+    fontFamily: fonts.ComfortaaVariableFontWght,
     color: 'rgba(0,0,0,0.25)',
     alignSelf: 'flex-end',
   },

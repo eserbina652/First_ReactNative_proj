@@ -1,19 +1,19 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import SignUpBtn from '../buttons/SignUpBtn';
-const SignUp = () => {
+const Registration = () => {
   return (
     <View style={styles.footer_container}>
       <Text>Don’t have an account?</Text>
       <View style={styles.register_wrap}>
-        <SignUpBtn text="SignUpBtn as a Music Lover" />
-        <SignUpBtn text="SignUpBtn as an Artist" />
+        <SignUpBtn text="Music Lover" />
+        <SignUpBtn text="Artist" />
       </View>
     </View>
   );
 };
 
-export default SignUp;
+export default Registration;
 
 const styles = StyleSheet.create({
   footer_container: {

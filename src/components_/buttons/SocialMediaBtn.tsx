@@ -1,16 +1,16 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {
-  Image,
-  ImageStyle,
   StyleSheet,
   Text,
   TouchableOpacity,
+  View,
+  ViewStyle,
 } from 'react-native';
 
 interface SocialMediaBtnProps {
   buttonType: 'facebook_btn' | 'google_btn' | 'apple_btn';
-  imgStyle?: ImageStyle;
-  source: number;
+  imgStyle?: ViewStyle;
+  source?: ReactNode;
   text: string;
 }
 const SocialMediaBtn = ({
@@ -20,12 +20,8 @@ const SocialMediaBtn = ({
   source,
 }: SocialMediaBtnProps) => {
   return (
-    <TouchableOpacity style={styles[buttonType]}>
-      <Image
-        resizeMode={'contain'}
-        style={[styles.socialMedia_img, imgStyle]}
-        source={source}
-      />
+    <TouchableOpacity style={[styles.social_btns, styles[buttonType]]}>
+      <View style={[imgStyle]}>{source}</View>
       <Text style={styles.socialMedia_text}>{text}</Text>
     </TouchableOpacity>
   );
@@ -34,32 +30,26 @@ const SocialMediaBtn = ({
 export default SocialMediaBtn;
 
 const styles = StyleSheet.create({
-  facebook_btn: {
+  social_btns: {
+    alignSelf: 'center',
+    alignItems: 'center',
     padding: 15,
-    width: '47.5%',
     justifyContent: 'center',
     flexDirection: 'row',
-    backgroundColor: '#3880DE',
     borderRadius: 10,
     gap: 12,
+  },
+  facebook_btn: {
+    width: '47.5%',
+    backgroundColor: '#3880DE',
   },
   google_btn: {
-    padding: 15,
     width: '47.5%',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    backgroundColor: '#E44E3B',
-    borderRadius: 10,
-    gap: 12,
+    backgroundColor: '#ffa700',
   },
   apple_btn: {
-    padding: 15,
     width: '100%',
-    justifyContent: 'center',
-    flexDirection: 'row',
     backgroundColor: '#323232',
-    borderRadius: 10,
-    gap: 12,
   },
   socialMedia_text: {
     color: 'white',

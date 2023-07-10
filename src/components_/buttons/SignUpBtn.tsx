@@ -1,15 +1,28 @@
 import React from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {info} from '../../assets';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import Info from '../../assets/image/Info';
 
 interface SignUpProps {
   text: string;
 }
 const SignUpBtn = ({text}: SignUpProps) => {
+  const checkVowelConsonant = (text: string) => {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    const firstLetter = text[0].toLowerCase();
+    const result = vowels.includes(firstLetter) ? 'an' : 'a';
+    return `${result} ${text}`;
+  };
+  const redirect = () => {
+    //go to SignUp, with registerText props('Music Lovers')
+  };
   return (
-    <TouchableOpacity style={styles.register_btn}>
-      <Text style={styles.register_btn_text}>{text}</Text>
-      <Image style={styles.register_btn_img} source={info} />
+    <TouchableOpacity onPress={redirect} style={styles.register_btn}>
+      <Text style={styles.register_btn_text}>
+        Register as {checkVowelConsonant(text)}
+      </Text>
+      <TouchableOpacity style={styles.register_img}>
+        <Info />
+      </TouchableOpacity>
     </TouchableOpacity>
   );
 };
@@ -31,8 +44,9 @@ const styles = StyleSheet.create({
     flex: 3,
     borderRightColor: 'rgba(255,0,144,0.1)',
   },
-  register_btn_img: {
-    width: 16,
-    height: 16,
+  register_img: {
+    alignSelf: 'center',
+    justifyContent: 'center',
+    paddingLeft: 10,
   },
 });

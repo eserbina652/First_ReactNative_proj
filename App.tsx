@@ -35,29 +35,18 @@
 // export default App;
 //
 import React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
-import LeftArrow from './src/assets/image/LeftArrow';
-import LogIn from './src/components_/signIn/LogIn';
-import SignUp from './src/components_/signUp/SignUp';
-import BackBtn from './src/components_/buttons/BackBtn';
+// import {StyleSheet} from 'react-native';
+// import SignIn from './src/screens/SignIn';
+import SignUp from './src/screens/SignUp';
 const App = () => {
-  //Todo: all png to svg!
   return (
-    <ScrollView style={styles.app_container}>
-      <BackBtn component={<LeftArrow />} />
-      <LogIn />
+    <>
+      {/*<SignIn />*/}
       <SignUp />
-    </ScrollView>
+    </>
   );
 };
 
 export default App;
 
-const styles = StyleSheet.create({
-  app_container: {
-    flex: 1,
-    padding: 30,
-    backgroundColor: '#FFF0F9',
-    // paddingBottom: 350,
-  },
-});
+// const styles = StyleSheet.create({});

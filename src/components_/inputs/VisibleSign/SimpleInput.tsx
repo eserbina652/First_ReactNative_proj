@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextInput, ViewStyle} from 'react-native';
+import {Text, TextInput, View, ViewStyle} from 'react-native';
 import {styles} from '../styles';
 
 interface SimpleInputProps {
@@ -7,11 +7,15 @@ interface SimpleInputProps {
   inputStyles?: ViewStyle;
 }
 const SimpleInput = ({placeholder, inputStyles}: SimpleInputProps) => {
+  const inputErr = '';
   return (
-    <TextInput
-      placeholder={placeholder}
-      style={[styles.loginInput, styles.inputs, inputStyles]}
-    />
+    <View>
+      <TextInput
+        placeholder={placeholder}
+        style={[styles.loginInput, styles.inputs, inputStyles]}
+      />
+      {inputErr && <Text>{inputErr}</Text>}
+    </View>
   );
 };
 

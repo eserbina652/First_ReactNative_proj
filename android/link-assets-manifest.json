@@ -2,6 +2,14 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "src/assets/fonts/Caprasimo-Regular.ttf",
+      "sha1": "69635154ccd4f68233cdc59173d6d32de5241d56"
+    },
+    {
+      "path": "src/assets/fonts/ChelaOne-Regular.ttf",
+      "sha1": "216929f370ea1dbf099ec19540964a5794595f9c"
+    },
+    {
       "path": "src/assets/fonts/Comfortaa-VariableFont_wght.ttf",
       "sha1": "1d1a61201baea75eb0aebdf75cef600c09cbb1da"
     },
@@ -11,7 +19,7 @@
     },
     {
       "path": "src/assets/fonts/index.js",
-      "sha1": "b7be56e55d0373a0ea14712c9d18c6b4fec54270"
+      "sha1": "30c39e56c48a91b724418f65e4273fe84081d322"
     }
   ]
 }
