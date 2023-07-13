@@ -1,16 +1,23 @@
 import React, {useState} from 'react';
-import {Text, TextInput, TouchableOpacity, View, ViewStyle} from 'react-native';
+import {
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
 import {styles} from '../styles';
 import DropDownImg from '../../../assets/image/DropDownImg';
+import {countries} from '../../../api/data/dropdownData';
 
 interface DropDownInputProps {
   inputStyle?: ViewStyle;
 }
+const options = countries;
 const DropDownInput = ({inputStyle}: DropDownInputProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
-
-  const options = ['Option 1', 'Option 2', 'Option 3'];
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -25,24 +32,33 @@ const DropDownInput = ({inputStyle}: DropDownInputProps) => {
     <View>
       <View style={[styles.inputs, styles.dropdownInput]}>
         <TextInput
-          placeholder={selectedOption || 'Choose your Country'}
+          value={selectedOption}
+          placeholder={'Choose your Country'}
           style={[inputStyle]}
+          // editable={false}коли змінюю цей параметр то текст знов блідий
         />
-        <TouchableOpacity onPress={toggleDropdown}>
+        <TouchableOpacity
+          style={styles.dropdown_btn}
+          onPress={() => toggleDropdown()}>
           <DropDownImg />
         </TouchableOpacity>
       </View>
 
       {isOpen && (
         <View style={styles.dropdownOptions}>
-          {options.map((option, index) => (
-            <TouchableOpacity
-              key={index}
-              style={styles.option}
-              onPress={() => handleOptionSelect(option)}>
-              <Text>{option}</Text>
-            </TouchableOpacity>
-          ))}
+          <ScrollView nestedScrollEnabled={true} style={styles.dropdownScroll}>
+            {options.map(option => (
+              <TouchableOpacity
+                key={option.id}
+                style={styles.option}
+                onPress={() =>
+                  handleOptionSelect(`${option.name} ${option.flag_emoji}`)
+                }>
+                <Text>{option.name}</Text>
+                <Text>{option.flag_emoji}</Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
         </View>
       )}
     </View>

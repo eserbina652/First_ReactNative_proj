@@ -2,7 +2,7 @@ import React from 'react';
 import BackBtn from '../components_/buttons/BackBtn';
 import LeftArrow from '../assets/image/LeftArrow';
 import LogIn from '../components_/signIn/LogIn';
-import Registration from '../components_/signUp/Registration';
+import RegisterAs from '../components_/signUp/RegisterAs';
 import {ScrollView, StyleSheet} from 'react-native';
 
 const SignIn = () => {
@@ -10,7 +10,7 @@ const SignIn = () => {
     <ScrollView style={styles.app_container}>
       <BackBtn component={<LeftArrow />} />
       <LogIn />
-      <Registration />
+      <RegisterAs />
     </ScrollView>
   );
 };
@@ -22,6 +22,5 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 30,
     backgroundColor: '#FFF0F9',
-    // paddingBottom: 350,
   },
 });

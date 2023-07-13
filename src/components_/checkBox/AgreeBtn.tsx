@@ -1,21 +1,16 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import AgreeSign from '../../assets/image/AgreeSign';
 
 interface AgreeBtnProps {
   label: string;
+  onChange: () => void;
+  value: boolean;
 }
-const AgreeBtn = ({label}: AgreeBtnProps) => {
-  const [checked, setChecked] = useState(false);
-
-  const handleToggle = () => {
-    const newValue = !checked;
-    setChecked(newValue);
-  };
-
+const AgreeBtn = ({label, onChange, value}: AgreeBtnProps) => {
   return (
-    <TouchableOpacity style={styles.checkboxContainer} onPress={handleToggle}>
-      {checked ? <AgreeSign /> : <View style={styles.checkbox} />}
+    <TouchableOpacity style={styles.checkboxContainer} onPress={onChange}>
+      {value ? <AgreeSign /> : <View style={styles.checkbox} />}
       <Text style={styles.label}>I agree with {label}</Text>
     </TouchableOpacity>
   );

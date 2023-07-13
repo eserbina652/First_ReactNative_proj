@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import SignUpBtn from '../buttons/SignUpBtn';
-const Registration = () => {
+const RegisterAs = () => {
   return (
     <View style={styles.footer_container}>
       <Text>Don’t have an account?</Text>
@@ -13,7 +13,7 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default RegisterAs;
 
 const styles = StyleSheet.create({
   footer_container: {
