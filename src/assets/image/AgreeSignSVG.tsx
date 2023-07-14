@@ -1,7 +1,7 @@
 import React from 'react';
 import {Path, Rect, Svg} from 'react-native-svg';
 
-const AgreeSign = () => {
+const AgreeSignSVG = () => {
   return (
     <Svg width="22" height="22" viewBox="0 0 22 22" fill="none">
       <Rect width="22" height="22" rx="5" fill="#FF0090" />
@@ -15,4 +15,4 @@ const AgreeSign = () => {
   );
 };
 
-export default AgreeSign;
+export default AgreeSignSVG;

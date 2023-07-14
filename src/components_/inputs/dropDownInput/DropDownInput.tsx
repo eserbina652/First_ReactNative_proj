@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {
-  ScrollView,
+  FlatList,
   Text,
   TextInput,
   TouchableOpacity,
@@ -8,8 +8,8 @@ import {
   ViewStyle,
 } from 'react-native';
 import {styles} from '../styles';
-import DropDownImg from '../../../assets/image/DropDownImg';
 import {countries} from '../../../api/data/dropdownData';
+import {DropDownImgSVG} from '../../../assets/image';
 
 interface DropDownInputProps {
   inputStyle?: ViewStyle;
@@ -35,30 +35,33 @@ const DropDownInput = ({inputStyle}: DropDownInputProps) => {
           value={selectedOption}
           placeholder={'Choose your Country'}
           style={[inputStyle]}
-          // editable={false}коли змінюю цей параметр то текст знов блідий
         />
         <TouchableOpacity
           style={styles.dropdown_btn}
           onPress={() => toggleDropdown()}>
-          <DropDownImg />
+          <DropDownImgSVG />
         </TouchableOpacity>
       </View>
 
       {isOpen && (
         <View style={styles.dropdownOptions}>
-          <ScrollView nestedScrollEnabled={true} style={styles.dropdownScroll}>
-            {options.map(option => (
+          <FlatList
+            nestedScrollEnabled={true}
+            data={options}
+            keyExtractor={option => option.id}
+            style={styles.dropdownScroll}
+            renderItem={({item}) => (
               <TouchableOpacity
-                key={option.id}
+                key={item.id}
                 style={styles.option}
                 onPress={() =>
-                  handleOptionSelect(`${option.name} ${option.flag_emoji}`)
+                  handleOptionSelect(`${item.name} ${item.flag_emoji}`)
                 }>
-                <Text>{option.name}</Text>
-                <Text>{option.flag_emoji}</Text>
+                <Text>{item.name}</Text>
+                <Text>{item.flag_emoji}</Text>
               </TouchableOpacity>
-            ))}
-          </ScrollView>
+            )}
+          />
         </View>
       )}
     </View>

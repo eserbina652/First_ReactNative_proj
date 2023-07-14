@@ -1,7 +1,7 @@
 import React from 'react';
 import {Path, Svg} from 'react-native-svg';
 
-const DropDownImg = () => {
+const DropDownImgSVG = () => {
   return (
     <Svg width="9" height="5" viewBox="0 0 9 5" fill="none">
       <Path
@@ -14,4 +14,4 @@ const DropDownImg = () => {
   );
 };
 
-export default DropDownImg;
+export default DropDownImgSVG;

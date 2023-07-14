@@ -37,10 +37,8 @@ export const styles = StyleSheet.create({
   },
   dropdown_btn: {
     alignItems: 'flex-end',
-    paddingTop: 5,
-    paddingBottom: 5,
-    paddingLeft: 15,
-    paddingRight: 15,
+    paddingVertical: 5,
+    paddingHorizontal: 15,
   },
   dropdownOptions: {
     marginTop: 5,

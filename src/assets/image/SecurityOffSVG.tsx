@@ -1,7 +1,7 @@
 import React from 'react';
 import {Path, Svg} from 'react-native-svg';
 
-const PasswordVisible = () => {
+const SecurityOffSVG = () => {
   return (
     <Svg width="22" height="22" viewBox="0 0 22 22" fill="none">
       <Path
@@ -12,4 +12,4 @@ const PasswordVisible = () => {
   );
 };
 
-export default PasswordVisible;
+export default SecurityOffSVG;

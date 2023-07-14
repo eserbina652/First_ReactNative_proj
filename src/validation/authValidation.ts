@@ -24,7 +24,7 @@ export const signInSchema = Yup.object()
     name: Yup.string()
       .min(2, 'Too Short, name must contain not less then 2 symbols!')
       .max(15, 'Too Long, name must contain not more then 15 symbols!')
-      .matches(nameRegexp, 'name must contain only letters and numbers')
+      .matches(nameRegexp, 'name must contain only letters')
       .required('required'),
     password: Yup.string()
       .min(8, 'Too Short, password must contain not less then 8 symbols!')

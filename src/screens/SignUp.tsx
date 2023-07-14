@@ -1,8 +1,9 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import Logo from '../components_/Logo';
-import SocialMediaBlock from '../components_/SocialMediaBlock';
-import Registration from '../Registration';
+import {ScrollView, Text, View} from 'react-native';
+import Logo from '../components_/logo/Logo';
+import SocialMediaBlock from '../components_/socialMedia/SocialMediaBlock';
+import Registration from '../registration/Registration';
+import {styles} from './styles';
 
 interface SignUpProps {
   registerText?: string;
@@ -22,16 +23,3 @@ const SignUp = ({registerText = 'Music Lovers'}: SignUpProps) => {
 };
 
 export default SignUp;
-
-const styles = StyleSheet.create({
-  app_container: {
-    flex: 1,
-    padding: 30,
-    backgroundColor: '#FFF0F9',
-  },
-  under_logo_text: {
-    alignItems: 'center',
-    gap: 10,
-    marginBottom: 15,
-  },
-});

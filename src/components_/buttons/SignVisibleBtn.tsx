@@ -1,11 +1,10 @@
 import React from 'react';
-import PasswordUnVisible from '../../assets/image/PasswordUnVisible';
-import PasswordVisible from '../../assets/image/PasswordVisible';
+import {SecurityOffSVG, SecurityOnSVG} from '../../assets/image';
 interface SignVisibleBtn {
   signVisible: boolean;
 }
 const SignVisibleBtn = ({signVisible}: SignVisibleBtn) => {
-  return <>{signVisible ? <PasswordVisible /> : <PasswordUnVisible />}</>;
+  return <>{signVisible ? <SecurityOffSVG /> : <SecurityOnSVG />}</>;
 };
 
 export default SignVisibleBtn;

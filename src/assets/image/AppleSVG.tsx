@@ -1,7 +1,7 @@
 import React from 'react';
 import {Path, Svg} from 'react-native-svg';
 
-const Apple = () => {
+const AppleSVG = () => {
   return (
     <Svg width="17" height="21" viewBox="0 0 17 21" fill="none">
       <Path
@@ -12,4 +12,4 @@ const Apple = () => {
   );
 };
 
-export default Apple;
+export default AppleSVG;

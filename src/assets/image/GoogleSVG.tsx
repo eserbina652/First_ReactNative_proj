@@ -1,7 +1,7 @@
 import React from 'react';
 import {Path, Svg} from 'react-native-svg';
 
-const Google = () => {
+const GoogleSVG = () => {
   return (
     <Svg width="16" height="17" viewBox="0 0 16 17" fill="none">
       <Path
@@ -12,4 +12,4 @@ const Google = () => {
   );
 };
 
-export default Google;
+export default GoogleSVG;

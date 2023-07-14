@@ -1,7 +1,7 @@
 import React from 'react';
 import {Path, Svg} from 'react-native-svg';
 
-const Facebook = () => {
+const FacebookSVG = () => {
   return (
     <Svg width="18" height="18" viewBox="0 0 18 18" fill="none">
       <Path
@@ -18,4 +18,4 @@ const Facebook = () => {
   );
 };
 
-export default Facebook;
+export default FacebookSVG;

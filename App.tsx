@@ -35,7 +35,6 @@
 // export default App;
 //
 import React from 'react';
-// import {StyleSheet} from 'react-native';
 // import SignIn from './src/screens/SignIn';
 import SignUp from './src/screens/SignUp';
 const App = () => {
@@ -48,5 +47,3 @@ const App = () => {
 };
 
 export default App;
-
-// const styles = StyleSheet.create({});

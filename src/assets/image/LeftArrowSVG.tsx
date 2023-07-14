@@ -1,7 +1,7 @@
 import React from 'react';
 import {Svg, Path} from 'react-native-svg';
 
-const LeftArrow = () => {
+const LeftArrowSVG = () => {
   return (
     <Svg width={17} height={17} viewBox="0 0 17 17" fill="none">
       <Path
@@ -15,4 +15,4 @@ const LeftArrow = () => {
   );
 };
 
-export default LeftArrow;
+export default LeftArrowSVG;

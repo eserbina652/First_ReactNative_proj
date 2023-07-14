@@ -1,14 +1,21 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import SimpleInput from './components_/inputs/VisibleSign/SimpleInput';
-import DropDownInput from './components_/inputs/dropDownInput/DropDownInput';
-import SpecialInput from './components_/inputs/UnvisibleSign/SpecialInput';
-import AgreeBtn from './components_/checkBox/AgreeBtn';
+import Input from '../components_/inputs/Input';
+import DropDownInput from '../components_/inputs/dropDownInput/DropDownInput';
+import AgreeBtn from '../components_/checkBox/AgreeBtn';
 import {Formik} from 'formik';
-import {signInSchema} from './validation/authValidation';
-import RegisterBtn from './components_/buttons/RegisterBtn';
+import {signInSchema} from '../validation/authValidation';
+import RegisterBtn from '../components_/buttons/register/RegisterBtn';
+
+interface InputsValues {
+  username: boolean;
+  password: boolean;
+  passwordConfirmation: boolean;
+  name: boolean;
+  email: boolean;
+}
 const Registration = () => {
-  const [touched, setTouched] = useState({
+  const [touched, setTouched] = useState<InputsValues>({
     username: false,
     password: false,
     passwordConfirmation: false,
@@ -41,7 +48,7 @@ const Registration = () => {
           <View style={styles.registration_block}>
             <View style={styles.input_block}>
               <Text>Public Information</Text>
-              <SimpleInput
+              <Input
                 onChange={text => setFieldValue('username', text)}
                 value={values.username}
                 error={touched.username && errors.username}
@@ -51,14 +58,14 @@ const Registration = () => {
             </View>
             <View style={styles.input_block}>
               <Text>Private Information</Text>
-              <SimpleInput
+              <Input
                 onChange={text => setFieldValue('name', text)}
                 value={values.name}
                 error={touched.name && errors.name}
                 placeholder="name"
                 onFocus={() => onFocusField('name')}
               />
-              <SimpleInput
+              <Input
                 placeholder="email"
                 onChange={text => setFieldValue('email', text)}
                 value={values.email}
@@ -69,19 +76,21 @@ const Registration = () => {
             </View>
             <View style={styles.input_block}>
               <Text>Account Security</Text>
-              <SpecialInput
+              <Input
                 onChange={text => setFieldValue('password', text)}
                 value={values.password}
                 error={touched.password && errors.password}
                 placeholder="password"
+                onFocus={() => onFocusField('password')}
               />
-              <SpecialInput
+              <Input
                 onChange={text => setFieldValue('passwordConfirmation', text)}
                 value={values.passwordConfirmation}
                 error={
                   touched.passwordConfirmation && errors.passwordConfirmation
                 }
                 placeholder="Re-enter your Password"
+                onFocus={() => onFocusField('passwordConfirmation')}
               />
               <AgreeBtn
                 onChange={() => setFieldValue('agreeFirst', !values.agreeFirst)}
