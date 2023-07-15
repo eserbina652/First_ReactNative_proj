@@ -31,7 +31,7 @@ export const signInSchema = Yup.object()
       .max(20, 'Too Long, password must contain not more then 20 symbols!')
       .matches(
         passRegexp,
-        'Password must includes letters(A-z), numbers, special symbols',
+        'Password must contain letters(A-z), numbers, special symbols',
       )
       .required('required'),
     passwordConfirmation: Yup.string().oneOf(
@@ -39,10 +39,10 @@ export const signInSchema = Yup.object()
       'Passwords must match',
     ),
     agreeFirst: Yup.boolean()
-      .required('The terms and conditions must be accepted.')
+      .required('required')
       .oneOf([true], 'The terms and conditions must be accepted.'),
     agreeSecond: Yup.boolean()
-      .required('The terms and conditions must be accepted.')
+      .required('required')
       .oneOf([true], 'The terms and conditions must be accepted.'),
   })
   .required();

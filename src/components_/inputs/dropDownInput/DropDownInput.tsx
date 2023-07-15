@@ -10,12 +10,14 @@ import {
 import {styles} from '../styles';
 import {countries} from '../../../api/data/dropdownData';
 import {DropDownImgSVG} from '../../../assets/image';
+import {useTranslation} from 'react-i18next';
 
 interface DropDownInputProps {
   inputStyle?: ViewStyle;
 }
 const options = countries;
 const DropDownInput = ({inputStyle}: DropDownInputProps) => {
+  const {t} = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
 
@@ -27,13 +29,14 @@ const DropDownInput = ({inputStyle}: DropDownInputProps) => {
     setSelectedOption(option);
     setIsOpen(false);
   };
+  const chosenCountry = t('chooseCountry');
 
   return (
     <View>
       <View style={[styles.inputs, styles.dropdownInput]}>
         <TextInput
           value={selectedOption}
-          placeholder={'Choose your Country'}
+          placeholder={chosenCountry}
           style={[inputStyle]}
         />
         <TouchableOpacity

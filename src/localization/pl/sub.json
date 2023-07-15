@@ -1,0 +1,23 @@
+{
+  "must": "musi",
+  "contain": "zawierać",
+  "and": "i",
+  "cant": "nie może",
+  "min": "min",
+  "max": "maks",
+  "symbols": "symbole",
+  "required": "wymagany",
+  "only": "tylko",
+  "letters": "litery",
+  "numbers": "liczby",
+  "too": "bardzo",
+  "short": "Krótki",
+  "long": "Długość przekroczona",
+  "not": "nie",
+  "more": "więcej",
+  "than": "niż",
+  "less": "mniej",
+  "doNotMatch": "nie pasuje",
+  "mustMatch": "musi pasować",
+  "checkboxTerms": "Warunki muszą zostać zaakceptowane."
+}

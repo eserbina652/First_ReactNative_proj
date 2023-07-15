@@ -6,8 +6,10 @@ import Input from '../inputs/Input';
 import SocialMediaBlock from '../socialMedia/SocialMediaBlock';
 import Logo from '../logo/Logo';
 import {styles} from './styles';
+import {useTranslation} from 'react-i18next';
 
 const LogIn = () => {
+  const {t} = useTranslation();
   return (
     <View style={styles.main_container}>
       <Logo />
@@ -18,7 +20,7 @@ const LogIn = () => {
       <ForgotPassBtn />
       <View style={styles.logIn_wrap}>
         <SignInBtn />
-        <Text style={styles.signWith}>or sign in with</Text>
+        <Text style={styles.signWith}>{t('signInWith')}</Text>
       </View>
       <SocialMediaBlock />
       <View />

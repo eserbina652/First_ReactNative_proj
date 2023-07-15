@@ -37,6 +37,10 @@
 import React from 'react';
 // import SignIn from './src/screens/SignIn';
 import SignUp from './src/screens/SignUp';
+import './i18.config';
+
+//Todo:як змінити мову помилок, як зробити кнопку фіксованою, як язати локалстораж, як переносити строки
+
 const App = () => {
   return (
     <>

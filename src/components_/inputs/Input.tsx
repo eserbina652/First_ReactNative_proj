@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Text, TextInput, TouchableOpacity, View, ViewStyle} from 'react-native';
 import {styles} from './styles';
 import SignVisibleBtn from '../buttons/SignVisibleBtn';
+import {useTranslation} from 'react-i18next';
 
 interface SimpleInputProps {
   placeholder: string;
@@ -10,6 +11,7 @@ interface SimpleInputProps {
   value?: string;
   error?: boolean | string;
   onFocus?: () => void;
+  security?: boolean;
 }
 const Input = ({
   placeholder,
@@ -18,26 +20,27 @@ const Input = ({
   value,
   error,
   onFocus,
+  security = false,
 }: SimpleInputProps) => {
+  const {t} = useTranslation();
   const [visible, setVisible] = useState(true);
-  const isSecurity = placeholder.toLowerCase().includes('password');
-  console.log(isSecurity, placeholder);
+  const placeholderVal = t(`${placeholder}`);
   return (
     <View>
-      <View style={isSecurity && styles.specialInput_container}>
+      <View style={security && styles.specialInput_container}>
         <TextInput
           onFocus={onFocus}
           onChangeText={onChange}
           value={value}
-          placeholder={placeholder}
+          placeholder={placeholderVal}
           style={
-            isSecurity
+            security
               ? [styles.specialInput, styles.inputs, inputStyles]
               : [styles.loginInput, styles.inputs, inputStyles]
           }
-          secureTextEntry={isSecurity && visible}
+          secureTextEntry={security && visible}
         />
-        {isSecurity && (
+        {security && (
           <TouchableOpacity
             onPress={() => setVisible(!visible)}
             style={styles.passwordVisibleImg}>

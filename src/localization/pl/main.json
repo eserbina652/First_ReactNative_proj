@@ -1,0 +1,22 @@
+{
+  "logo": "Projekt ReactNative Szczerbiny",
+  "registration": "Rejestracja",
+  "registerWith": "Zarejestruj się z",
+  "signInWith": "Zaloguj się przez",
+  "information": "Informacje",
+  "public": "Publiczny",
+  "private": "Prywatny",
+  "username": "nazwa użytkownika",
+  "name": "imię",
+  "security": "Bezpieczeństwo",
+  "account": "Konto",
+  "password": "hasło",
+  "reEnter": "Powtórz hasło",
+  "termsAndConditions": "Warunkami",
+  "privacyPolicy": "Polityką prywatności",
+  "logIn": "Zaloguj się",
+  "DontHaveAnAccount": "Nie masz konta?",
+  "language": "pl",
+  "chooseCountry": "Wybierz swój kraj",
+  "agree": "zgadzam się z"
+}

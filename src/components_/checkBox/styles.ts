@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 10,
+    // flexWrap: 'wrap',
   },
   checkbox: {
     backgroundColor: 'white',

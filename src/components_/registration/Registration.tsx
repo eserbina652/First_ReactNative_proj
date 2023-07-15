@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import Input from '../components_/inputs/Input';
-import DropDownInput from '../components_/inputs/dropDownInput/DropDownInput';
-import AgreeBtn from '../components_/checkBox/AgreeBtn';
+import Input from '../inputs/Input';
+import DropDownInput from '../inputs/dropDownInput/DropDownInput';
+import AgreeBtn from '../checkBox/AgreeBtn';
 import {Formik} from 'formik';
-import {signInSchema} from '../validation/authValidation';
-import RegisterBtn from '../components_/buttons/register/RegisterBtn';
+import {signInSchema} from '../../validation/authValidation';
+import RegisterBtn from '../buttons/register/RegisterBtn';
+import {useTranslation} from 'react-i18next';
 
 interface InputsValues {
   username: boolean;
@@ -15,6 +16,7 @@ interface InputsValues {
   email: boolean;
 }
 const Registration = () => {
+  const {t} = useTranslation();
   const [touched, setTouched] = useState<InputsValues>({
     username: false,
     password: false,
@@ -47,7 +49,9 @@ const Registration = () => {
         {({values, isValid, errors, setFieldValue, handleSubmit}) => (
           <View style={styles.registration_block}>
             <View style={styles.input_block}>
-              <Text>Public Information</Text>
+              <Text>
+                {t('public')} {t('information')}
+              </Text>
               <Input
                 onChange={text => setFieldValue('username', text)}
                 value={values.username}
@@ -57,7 +61,9 @@ const Registration = () => {
               />
             </View>
             <View style={styles.input_block}>
-              <Text>Private Information</Text>
+              <Text>
+                {t('private')} {t('information')}
+              </Text>
               <Input
                 onChange={text => setFieldValue('name', text)}
                 value={values.name}
@@ -75,8 +81,11 @@ const Registration = () => {
               <DropDownInput />
             </View>
             <View style={styles.input_block}>
-              <Text>Account Security</Text>
+              <Text>
+                {t('account')} {t('security')}
+              </Text>
               <Input
+                security={true}
                 onChange={text => setFieldValue('password', text)}
                 value={values.password}
                 error={touched.password && errors.password}
@@ -84,25 +93,26 @@ const Registration = () => {
                 onFocus={() => onFocusField('password')}
               />
               <Input
+                security={true}
                 onChange={text => setFieldValue('passwordConfirmation', text)}
                 value={values.passwordConfirmation}
                 error={
                   touched.passwordConfirmation && errors.passwordConfirmation
                 }
-                placeholder="Re-enter your Password"
+                placeholder="reEnter"
                 onFocus={() => onFocusField('passwordConfirmation')}
               />
               <AgreeBtn
                 onChange={() => setFieldValue('agreeFirst', !values.agreeFirst)}
                 value={values.agreeFirst}
-                label="Terms and Conditions"
+                label="termsAndConditions"
               />
               <AgreeBtn
                 onChange={() =>
                   setFieldValue('agreeSecond', !values.agreeSecond)
                 }
                 value={values.agreeSecond}
-                label="Privacy Policy"
+                label="privacyPolicy"
               />
             </View>
             <RegisterBtn disabled={!isValid} handleSubmit={handleSubmit} />

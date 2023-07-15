@@ -1,0 +1,23 @@
+{
+  "must": "must",
+  "contain": "contain",
+  "and": "and",
+  "cant": "can't",
+  "min": "min",
+  "max": "max",
+  "symbols": "symbols",
+  "required": "required",
+  "only": "only",
+  "letters": "letters",
+  "numbers": "numbers",
+  "too": "Too",
+  "short": "Short",
+  "long": "Long",
+  "not": "not",
+  "more": "more",
+  "than": "than",
+  "less": "less",
+  "doNotMatch": "do not match",
+  "mustMatch": "must match",
+  "checkboxTerms": "The terms and conditions must be accepted."
+}
