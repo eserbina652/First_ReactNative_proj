@@ -1,6 +1,7 @@
 {
   "logo": "ReactNative проєкт Євгенії Щербіни",
-  "registration": "Зареєструватися як",
+  "registration": "Зареєструватися",
+  "registerAs": "Зареєструватися",
   "registerWith": "Зареєструватися за допомогою",
   "signInWith": "Увійти за допомогою",
   "information": "Інформація",
@@ -15,8 +16,17 @@
   "termsAndConditions": "Правилами та умовами",
   "privacyPolicy": "Політикою конфіденційності",
   "logIn": "Увійти",
-  "DontHaveAnAccount": "Не має аккаунту?",
+  "loginPlaceholder": "Email або логін",
+  "dontHaveAnAccount": "Не має аккаунту?",
   "language": "uk",
   "chooseCountry": "Обери свою країну",
-  "agree": "Я згоден/згодна з"
+  "agree": "Я згоден/згодна з",
+  "forgotPass": "Не пам'ятаєш пароль",
+  "a": "як",
+  "an": "як",
+  "signIn": "Вхід",
+  "signUp": "Реєстрація",
+  "forecast": "Прогноз",
+  "finance": "Фінанси",
+  "favourites":  "Улюблене"
 }

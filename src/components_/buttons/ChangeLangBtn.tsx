@@ -30,13 +30,11 @@ export default ChangeLangBtn;
 
 const styles = StyleSheet.create({
   buttonWrapp: {
-    padding: 10,
+    paddingVertical: 5,
+    paddingHorizontal: 15,
     backgroundColor: '#FF0090',
     borderRadius: 10,
     width: '15%',
-    alignSelf: 'flex-end',
-    position: 'relative',
-    margin: 5,
   },
   text: {
     color: 'white',

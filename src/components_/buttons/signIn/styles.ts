@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  logIn_btn: {
+  active_btn: {
     minWidth: '100%',
     backgroundColor: '#FF0090',
     borderRadius: 10,
@@ -15,5 +15,8 @@ export const styles = StyleSheet.create({
   login_btn_text: {
     color: 'white',
     alignSelf: 'center',
+  },
+  disabled_btn: {
+    backgroundColor: 'rgba(255,0,144,0.29)',
   },
 });

@@ -1,6 +1,7 @@
 {
   "logo": "Shcherbina's ReactNative project",
   "registration": "Registration",
+  "registerAs": "Register as",
   "registerWith": "Register with",
   "signInWith": "Sign in with",
   "information": "Information",
@@ -14,9 +15,18 @@
   "reEnter": "Re-enter your password",
   "termsAndConditions": "Terms and Conditions",
   "privacyPolicy": "Privacy Policy",
-  "logIn": "Log In",
-  "DontHaveAnAccount": "Don’t have an account?",
+  "logIn": "LogIn",
+  "loginPlaceholder": "Email or login",
+  "dontHaveAnAccount": "Don’t have an account?",
   "language": "en",
   "chooseCountry": "Choose your Country",
-  "agree": "I agree with"
+  "agree": "I agree with",
+  "forgotPass": "Forgot password",
+  "a": "a",
+  "an": "an",
+  "signIn": "SignIn",
+  "signUp": "SignUp",
+  "forecast": "Forecast",
+  "finance": "Finance",
+  "favourites":  "Favourites"
 }

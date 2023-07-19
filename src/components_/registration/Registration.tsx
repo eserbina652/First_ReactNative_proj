@@ -4,9 +4,11 @@ import Input from '../inputs/Input';
 import DropDownInput from '../inputs/dropDownInput/DropDownInput';
 import AgreeBtn from '../checkBox/AgreeBtn';
 import {Formik} from 'formik';
-import {signInSchema} from '../../validation/authValidation';
+import {signUpSchema} from '../../validation/authValidation';
 import RegisterBtn from '../buttons/register/RegisterBtn';
 import {useTranslation} from 'react-i18next';
+import {useNavigation} from '@react-navigation/native';
+import {ScreensName} from '../../constants';
 
 interface InputsValues {
   username: boolean;
@@ -17,6 +19,7 @@ interface InputsValues {
 }
 const Registration = () => {
   const {t} = useTranslation();
+  const navigation = useNavigation();
   const [touched, setTouched] = useState<InputsValues>({
     username: false,
     password: false,
@@ -27,8 +30,14 @@ const Registration = () => {
   const onFocusField = (key: string) => {
     setTouched(prev => ({...prev, [key]: true}));
   };
-  const handleSubmit = () => {
-    // Handle form submission
+  const handleSubmit = (parameters: any) => {
+    // @ts-ignore
+    navigation.navigate(ScreensName.LOGGED_IN_STACK, {
+      screen: ScreensName.STREAM,
+      params: {
+        name: parameters.name,
+      },
+    });
   };
   return (
     <View>
@@ -44,7 +53,7 @@ const Registration = () => {
           agreeFirst: false,
         }}
         validateOnMount={true}
-        validationSchema={signInSchema}
+        validationSchema={signUpSchema}
         onSubmit={handleSubmit}>
         {({values, isValid, errors, setFieldValue, handleSubmit}) => (
           <View style={styles.registration_block}>
@@ -115,7 +124,13 @@ const Registration = () => {
                 label="privacyPolicy"
               />
             </View>
-            <RegisterBtn disabled={!isValid} handleSubmit={handleSubmit} />
+            <RegisterBtn
+              disabled={!isValid}
+              handleSubmit={() => {
+                // @ts-ignore
+                handleSubmit(values);
+              }}
+            />
           </View>
         )}
       </Formik>

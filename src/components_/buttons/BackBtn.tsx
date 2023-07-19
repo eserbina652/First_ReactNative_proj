@@ -1,20 +1,21 @@
 import React, {ReactNode} from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 interface BackBtnProps {
   component: ReactNode;
 }
 const BackBtn = ({component}: BackBtnProps) => {
+  const navigation = useNavigation();
+
+  const redirect = () => {
+    // @ts-ignore
+    navigation.navigate('SignIn');
+  };
   return (
-    <View style={styles.backArrowBlock}>
-      <TouchableOpacity>{component}</TouchableOpacity>
+    <View>
+      <TouchableOpacity onPress={redirect}>{component}</TouchableOpacity>
     </View>
   );
 };
 
 export default BackBtn;
-
-const styles = StyleSheet.create({
-  backArrowBlock: {
-    alignSelf: 'flex-start',
-  },
-});

@@ -7,7 +7,27 @@ const usernameRegexp = /^[a-zA-Z0-9_-]{4,12}$/;
 const nameRegexp = /^[A-Za-z]{2,15}$/;
 const passRegexp =
   /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+
 export const signInSchema = Yup.object()
+  .shape({
+    email: Yup.string()
+      .min(6, '* min 6 symbols')
+      .matches(
+        emailRegexp,
+        'email must contain @ and can\'t contain: <, >, [, ], :, ;, " ',
+      )
+      .required('required'),
+    password: Yup.string()
+      .min(8, 'Too Short, password must contain not less then 8 symbols!')
+      .max(20, 'Too Long, password must contain not more then 20 symbols!')
+      .matches(
+        passRegexp,
+        'Password must contain letters(A-z), numbers, special symbols',
+      )
+      .required('required'),
+  })
+  .required();
+export const signUpSchema = Yup.object()
   .shape({
     email: Yup.string()
       .min(6, '* min 6 symbols')

@@ -35,18 +35,17 @@
 // export default App;
 //
 import React from 'react';
-// import SignIn from './src/screens/SignIn';
-import SignUp from './src/screens/SignUp';
 import './i18.config';
-
-//Todo:як змінити мову помилок, як зробити кнопку фіксованою, як язати локалстораж, як переносити строки
+import 'react-native-gesture-handler';
+import {SafeAreaView} from 'react-native';
+import Navigation from './src/navigation';
+//Todo:як змінити мову помилок, як зробити кнопку фіксованою, як юзати локалстораж, як переносити строки
 
 const App = () => {
   return (
-    <>
-      {/*<SignIn />*/}
-      <SignUp />
-    </>
+    <SafeAreaView style={{flex: 1}}>
+      <Navigation />
+    </SafeAreaView>
   );
 };
 
