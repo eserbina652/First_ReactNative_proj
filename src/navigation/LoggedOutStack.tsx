@@ -21,7 +21,7 @@ export default () => {
       <LoggedOutStack.Screen
         options={{
           header: () => <NavBar title="signUp" withIcon={true} />,
-          headerShown: true,
+          headerShown: false,
         }}
         name={ScreensName.SIGN_UP}
         component={SignUp}

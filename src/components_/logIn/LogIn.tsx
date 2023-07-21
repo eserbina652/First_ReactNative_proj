@@ -27,7 +27,6 @@ const LogIn = () => {
     setTouched(prev => ({...prev, [key]: true}));
   };
   const onLogin = (parameters: any) => {
-    // @ts-ignore
     navigation.dispatch(
       CommonActions.reset({
         index: 1,

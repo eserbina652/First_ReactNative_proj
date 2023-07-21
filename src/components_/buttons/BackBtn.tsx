@@ -1,6 +1,7 @@
 import React, {ReactNode} from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {ScreensName} from '../../constants';
 interface BackBtnProps {
   component: ReactNode;
 }
@@ -9,7 +10,7 @@ const BackBtn = ({component}: BackBtnProps) => {
 
   const redirect = () => {
     // @ts-ignore
-    navigation.navigate('SignIn');
+    navigation.navigate(ScreensName.SIGN_IN);
   };
   return (
     <View>

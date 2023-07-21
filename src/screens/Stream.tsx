@@ -1,17 +1,22 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {useRoute} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {ScreensName} from '../constants';
+import {RootStackParamList} from '../utils/types';
 
+type StreamScreenRouteProp = RouteProp<RootStackParamList, 'Stream'>;
 const Stream = () => {
-  const {params} = useRoute();
+  const {params} = useRoute<StreamScreenRouteProp>();
+  const navigation = useNavigation();
+  const navigateToDrawerStack = () => {
+    // @ts-ignore
+    navigation.navigate(ScreensName.DRAWER_STACK);
+  };
   return (
     <View>
-      <Text>
-        {/*@ts-ignore*/}
-        Hello {params?.name || params?.email}
-      </Text>
-      <TouchableOpacity>
-        <Text>Go to tab bar stack</Text>
+      <Text>Hello {params?.name || params?.email}</Text>
+      <TouchableOpacity onPress={navigateToDrawerStack}>
+        <Text>Go to drawer stack</Text>
       </TouchableOpacity>
     </View>
   );

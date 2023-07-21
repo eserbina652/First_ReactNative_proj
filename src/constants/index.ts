@@ -8,4 +8,5 @@ export const ScreensName = {
   FINANCE: 'Finance', //Setting
   FAVOURITES: 'Favourites', //Profile
   TAB_BAR_STACK: 'TAB_BAR_STACK',
+  DRAWER_STACK: 'DRAWER_STACK',
 };

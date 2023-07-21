@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {FavoritesSVG, FullFavouritesSVG} from '../assets/image';
-import {FavouritesData} from '../api/data/favouritesData';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {FavoritesSVG, FullFavouritesSVG} from '../../../assets/image';
+import {FavouritesData} from '../../../api/data/favouritesData';
+import {styles} from './styles';
 
 interface MusicElementProps {
   item: FavouritesData;
@@ -40,39 +41,3 @@ const MusicElement = ({item}: MusicElementProps) => {
 };
 
 export default MusicElement;
-
-const styles = StyleSheet.create({
-  rowContainer: {
-    flexDirection: 'row',
-  },
-  mainContainer: {
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginVertical: 12,
-  },
-  previewContainer: {
-    gap: 15,
-    alignItems: 'center',
-  },
-  imgContainer: {
-    width: 66,
-    height: 66,
-  },
-  img: {
-    width: '100%',
-    height: '100%',
-  },
-  descriptionContainer: {
-    alignItems: 'flex-end',
-  },
-  musicName: {
-    fontWeight: '700',
-    color: 'black',
-  },
-  countryName: {
-    color: 'black',
-  },
-  gap: {
-    gap: 5,
-  },
-});

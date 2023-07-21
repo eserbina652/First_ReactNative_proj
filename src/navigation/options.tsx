@@ -15,7 +15,6 @@ const tabBarOptions = (route: RouteProp<ParamListBase, string>) => ({
     let Icon;
     let isText = false;
     let color = focused ? 'pink' : 'black';
-    console.log('routeName', route.name);
     if (route.name === ScreensName.FORECAST) {
       Icon = <ForecastSVG color={color} />;
       isText = true;
@@ -28,9 +27,6 @@ const tabBarOptions = (route: RouteProp<ParamListBase, string>) => ({
       Icon = <FavoritesSVG color={color} />;
       isText = true;
     }
-    // if (!route || !route.name) {
-    //   return null;
-    // }
     const screenName = route.name.toLowerCase().split('_').join(' ');
     return (
       <View style={styles.iconContainer}>
@@ -44,6 +40,8 @@ const tabBarOptions = (route: RouteProp<ParamListBase, string>) => ({
     );
   },
 });
+
+export default tabBarOptions;
 const styles = StyleSheet.create({
   tabBarStyles: {
     backgroundColor: 'white',
@@ -57,13 +55,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-    // paddingTop: 5,
-    // paddingHorizontal: 15,
-    // paddingBottom: 15,
   },
   iconStyle: {
     fontSize: 14,
   },
 });
-
-export default tabBarOptions;
