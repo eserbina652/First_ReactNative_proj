@@ -1,13 +1,40 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {ProfileIMG} from '../../assets/image';
+import ShareBtn from '../buttons/ShareBtn';
+import RedirectBtn from '../buttons/RedirectBtn';
+import React from 'react';
+import {ScreensName} from '../../constants';
 
 export default () => {
   return (
     <View style={styles.mainContainer}>
       <View>
-        <Text style={styles.screenText}>Favourites photo</Text>
-        <Text style={styles.screenText}>Shared photo</Text>
+        <Image source={ProfileIMG} />
+        <Text>Dima Kisov</Text>
       </View>
-      <Text style={styles.logOut}>LogOut</Text>
+      <View>
+        <View>
+          <Text style={styles.screenText}>Profile</Text>
+          <RedirectBtn redirectTo={ScreensName.PROFILE} />
+        </View>
+        <View>
+          <Text style={styles.screenText}>Language</Text>
+          <View>
+            <Text>🇵🇱</Text>
+            <RedirectBtn redirectTo={ScreensName.LANGUAGE} />
+          </View>
+        </View>
+        <View>
+          <Text style={styles.screenText}>Invite Friend</Text>
+          <View>
+            <ShareBtn />
+            <RedirectBtn redirectTo={ScreensName.FRIEND} />
+          </View>
+        </View>
+      </View>
+      <TouchableOpacity style={styles.logOut}>
+        <Text>LogOut</Text>
+      </TouchableOpacity>
     </View>
   );
 };

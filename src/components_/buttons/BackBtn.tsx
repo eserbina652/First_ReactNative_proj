@@ -1,15 +1,19 @@
 import React, {ReactNode} from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {ScreensName} from '../../constants';
+import {
+  LoggedOutTypeNavigation,
+  NavigationProp,
+  ScreensName,
+} from '../../constants';
 interface BackBtnProps {
   component: ReactNode;
 }
 const BackBtn = ({component}: BackBtnProps) => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NavigationProp<LoggedOutTypeNavigation, string>>();
 
   const redirect = () => {
-    // @ts-ignore
     navigation.navigate(ScreensName.SIGN_IN);
   };
   return (

@@ -8,7 +8,7 @@ import Logo from '../logo/Logo';
 import {styles} from './styles';
 import {useTranslation} from 'react-i18next';
 import {CommonActions, useNavigation} from '@react-navigation/native';
-import {Formik} from 'formik';
+import {Formik, FormikValues} from 'formik';
 import {signInSchema} from '../../validation/authValidation';
 import {ScreensName} from '../../constants';
 
@@ -56,7 +56,7 @@ const LogIn = () => {
         validateOnMount={true}
         validationSchema={signInSchema}
         onSubmit={onLogin}>
-        {({values, isValid, errors, setFieldValue}) => (
+        {({values, isValid, errors, setFieldValue}: FormikValues) => (
           <View>
             <View>
               <Input

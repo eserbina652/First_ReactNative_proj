@@ -1,12 +1,12 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {ScreensName} from '../constants';
+import {ScreensName, TabTypeNavigation} from '../constants';
 import NavBar from '../components_/NavBar';
 import Forecast from '../screens/Forecast';
 import Finance from '../screens/Finance';
 import Favourites from '../screens/Favourites';
 import tabBarOptions from './options';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<TabTypeNavigation>();
 export default () => {
   return (
     <Tab.Navigator

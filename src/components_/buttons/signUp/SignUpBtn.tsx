@@ -4,17 +4,21 @@ import {styles} from './styles';
 import {InfoSVG} from '../../../assets/image';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
-import {ScreensName} from '../../../constants';
+import {
+  LoggedOutTypeNavigation,
+  NavigationProp,
+  ScreensName,
+} from '../../../constants';
 
 interface SignUpProps {
   text: string;
 }
 const SignUpBtn = ({text}: SignUpProps) => {
   const {t} = useTranslation();
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NavigationProp<LoggedOutTypeNavigation, string>>();
 
   const redirect = () => {
-    // @ts-ignore
     navigation.navigate(ScreensName.SIGN_UP, {registerAs: text});
   };
   return (

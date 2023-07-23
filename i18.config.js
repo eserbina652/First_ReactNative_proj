@@ -6,12 +6,15 @@ import {getLocales} from 'react-native-localize';
 const resources = {
   en: {
     main: localizationConfig.mainEn,
+    sub: localizationConfig.subEn,
   },
   uk: {
     main: localizationConfig.mainUk,
+    sub: localizationConfig.subUk,
   },
   pl: {
     main: localizationConfig.mainPl,
+    sub: localizationConfig.subPl,
   },
 };
 

@@ -1,11 +1,11 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import {ScreensName} from '../constants';
+import {LoggedInTypeNavigation, ScreensName} from '../constants';
 import DrawerNavigation from './DrawerNavigation';
 import NavBar from '../components_/NavBar';
 import Stream from '../screens/Stream';
 
-const LoggedInStack = createNativeStackNavigator();
+const LoggedInStack = createNativeStackNavigator<LoggedInTypeNavigation>();
 
 export default () => {
   return (

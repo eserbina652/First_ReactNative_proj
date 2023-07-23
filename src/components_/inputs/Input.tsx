@@ -3,13 +3,14 @@ import {Text, TextInput, TouchableOpacity, View, ViewStyle} from 'react-native';
 import {styles} from './styles';
 import SignVisibleBtn from '../buttons/SignVisibleBtn';
 import {useTranslation} from 'react-i18next';
+import i18n from '../../../i18.config';
 
 interface SimpleInputProps {
   placeholder: string;
   inputStyles?: ViewStyle;
   onChange?: (text: string) => void;
   value?: string;
-  error?: boolean | string;
+  error?: string | undefined;
   onFocus?: () => void;
   security?: boolean;
 }
@@ -22,9 +23,10 @@ const Input = ({
   onFocus,
   security = false,
 }: SimpleInputProps) => {
-  const {t} = useTranslation();
+  const {t} = useTranslation(['main', 'sub']);
   const [visible, setVisible] = useState(true);
-  const placeholderVal = t(`${placeholder}`);
+  const placeholderVal = t(`${placeholder}`, {ns: 'main'});
+  console.log('VAL', value); //Як оптимізувати інпути, чи все окей?
   return (
     <View>
       <View style={security && styles.specialInput_container}>
@@ -48,7 +50,9 @@ const Input = ({
           </TouchableOpacity>
         )}
       </View>
-      {error && <Text style={styles.inputErr}>{error}</Text>}
+      {error && (
+        <Text style={styles.inputErr}>{i18n.t(error, {ns: 'sub'})}</Text>
+      )}
     </View>
   );
 };

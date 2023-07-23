@@ -1,11 +1,11 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import {ScreensName} from '../constants';
+import {MainNavigationStack, ScreensName} from '../constants';
 import LoggedOutStack from './LoggedOutStack';
 import LoggedInStack from './LoggedInStack';
 
-const MainStack = createNativeStackNavigator();
+const MainStack = createNativeStackNavigator<MainNavigationStack>();
 
 export default () => {
   return (

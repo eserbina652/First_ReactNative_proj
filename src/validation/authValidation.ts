@@ -11,58 +11,42 @@ const passRegexp =
 export const signInSchema = Yup.object()
   .shape({
     email: Yup.string()
-      .min(6, '* min 6 symbols')
-      .matches(
-        emailRegexp,
-        'email must contain @ and can\'t contain: <, >, [, ], :, ;, " ',
-      )
+      .min(6, 'emailMin')
+      .matches(emailRegexp, 'emailMatches')
       .required('required'),
     password: Yup.string()
-      .min(8, 'Too Short, password must contain not less then 8 symbols!')
-      .max(20, 'Too Long, password must contain not more then 20 symbols!')
-      .matches(
-        passRegexp,
-        'Password must contain letters(A-z), numbers, special symbols',
-      )
+      .min(8, 'passwordMin')
+      .max(20, 'passwordMax')
+      .matches(passRegexp, 'passwordMatches')
       .required('required'),
   })
   .required();
 export const signUpSchema = Yup.object()
   .shape({
     email: Yup.string()
-      .min(6, '* min 6 symbols')
-      .matches(
-        emailRegexp,
-        'email must contain @ and can\'t contain: <, >, [, ], :, ;, " ',
-      )
+      .min(6, 'emailMin')
+      .matches(emailRegexp, 'emailMatches')
       .required('required'),
     username: Yup.string()
-      .min(4, '* min 4 symbols')
-      .max(12, '* max 12 symbols')
-      .matches(usernameRegexp, 'username must contain only letters and numbers')
+      .min(4, 'userNameMin')
+      .max(12, 'userNameMax')
+      .matches(usernameRegexp, 'userNameMatches')
       .required('required'),
     name: Yup.string()
-      .min(2, 'Too Short, name must contain not less then 2 symbols!')
-      .max(15, 'Too Long, name must contain not more then 15 symbols!')
-      .matches(nameRegexp, 'name must contain only letters')
+      .min(2, 'nameMin')
+      .max(15, 'nameMax')
+      .matches(nameRegexp, 'nameMatches')
       .required('required'),
     password: Yup.string()
-      .min(8, 'Too Short, password must contain not less then 8 symbols!')
-      .max(20, 'Too Long, password must contain not more then 20 symbols!')
-      .matches(
-        passRegexp,
-        'Password must contain letters(A-z), numbers, special symbols',
-      )
+      .min(8, 'passwordMin')
+      .max(20, 'passwordMax')
+      .matches(passRegexp, 'passwordMatches')
       .required('required'),
     passwordConfirmation: Yup.string().oneOf(
-      [Yup.ref('password'), 'Your passwords do not match.'],
-      'Passwords must match',
+      [Yup.ref('password'), 'passConfirmNOT'],
+      'passConfirmMessage',
     ),
-    agreeFirst: Yup.boolean()
-      .required('required')
-      .oneOf([true], 'The terms and conditions must be accepted.'),
-    agreeSecond: Yup.boolean()
-      .required('required')
-      .oneOf([true], 'The terms and conditions must be accepted.'),
+    agreeFirst: Yup.boolean().required('required').oneOf([true], 'agree'),
+    agreeSecond: Yup.boolean().required('required').oneOf([true], 'agree'),
   })
   .required();

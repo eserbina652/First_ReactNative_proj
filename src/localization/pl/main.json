@@ -28,5 +28,8 @@
   "signUp": "Zarejestruj się",
   "forecast": "Prognoza",
   "finance": "Finanse",
-  "favourites":  "Ulubione"
+  "favourites":  "Ulubione",
+  "en": "Angielski",
+  "uk":"Ukraiński",
+  "pl": "Polski"
 }

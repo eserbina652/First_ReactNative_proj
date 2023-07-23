@@ -1,11 +1,11 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {Dimensions} from 'react-native';
-import {ScreensName} from '../constants';
+import {DrawerTypeNavigation, ScreensName} from '../constants';
 import TabBarNavigation from './TabBarNavigation';
 import DrawerContent from '../components_/DrawerContent';
 
-const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator<DrawerTypeNavigation>();
 const width = Dimensions.get('window').width;
 const DrawerNavigation = () => {
   return (
@@ -15,7 +15,8 @@ const DrawerNavigation = () => {
       screenOptions={{
         headerShown: false,
         drawerPosition: 'right',
-        swipeEdgeWidth: 100,
+        swipeEdgeWidth: 300,
+        swipeEnabled: true,
         drawerStyle: {
           width: width * 0.7,
           backgroundColor: 'white',

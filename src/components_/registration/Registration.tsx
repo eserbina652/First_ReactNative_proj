@@ -3,24 +3,40 @@ import {StyleSheet, Text, View} from 'react-native';
 import Input from '../inputs/Input';
 import DropDownInput from '../inputs/dropDownInput/DropDownInput';
 import AgreeBtn from '../checkBox/AgreeBtn';
-import {Formik} from 'formik';
+import {Formik, FormikValues} from 'formik';
 import {signUpSchema} from '../../validation/authValidation';
 import RegisterBtn from '../buttons/register/RegisterBtn';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
-import {ScreensName} from '../../constants';
+import {
+  LoggedInTypeNavigation,
+  NavigationProp,
+  ScreensName,
+} from '../../constants';
 
-interface InputsValues {
+interface TouchedInputsValues {
   username: boolean;
   password: boolean;
   passwordConfirmation: boolean;
   name: boolean;
   email: boolean;
 }
+
+interface InputsValues {
+  username: string;
+  password: string;
+  reTypePass: string;
+  name: string;
+  email: string;
+  passwordConfirmation: string;
+  agreeSecond: boolean;
+  agreeFirst: boolean;
+}
 const Registration = () => {
   const {t} = useTranslation();
-  const navigation = useNavigation();
-  const [touched, setTouched] = useState<InputsValues>({
+  const navigation =
+    useNavigation<NavigationProp<LoggedInTypeNavigation, string>>();
+  const [touched, setTouched] = useState<TouchedInputsValues>({
     username: false,
     password: false,
     passwordConfirmation: false,
@@ -30,10 +46,10 @@ const Registration = () => {
   const onFocusField = (key: string) => {
     setTouched(prev => ({...prev, [key]: true}));
   };
-  const handleSubmit = (parameters: any) => {
-    // @ts-ignore
+  const handleSubmit = (parameters: InputsValues) => {
     navigation.navigate(ScreensName.LOGGED_IN_STACK, {
       screen: ScreensName.STREAM,
+      // @ts-ignore
       params: {
         name: parameters.name,
       },
@@ -55,7 +71,13 @@ const Registration = () => {
         validateOnMount={true}
         validationSchema={signUpSchema}
         onSubmit={handleSubmit}>
-        {({values, isValid, errors, setFieldValue, handleSubmit}) => (
+        {({
+          values,
+          isValid,
+          errors,
+          setFieldValue,
+          handleSubmit,
+        }: FormikValues) => (
           <View style={styles.registration_block}>
             <View style={styles.input_block}>
               <Text>
@@ -127,7 +149,6 @@ const Registration = () => {
             <RegisterBtn
               disabled={!isValid}
               handleSubmit={() => {
-                // @ts-ignore
                 handleSubmit(values);
               }}
             />
