@@ -39,8 +39,8 @@ import './i18.config';
 import 'react-native-gesture-handler';
 import {SafeAreaView} from 'react-native';
 import Navigation from './src/navigation';
-//Todo:як змінити мову помилок, як зробити кнопку фіксованою, як юзати локалстораж, як переносити строки
-
+//Todo:ПИТАННЯ: як зробити кнопку фіксованою, як переносити строки
+//Todo: підключити локалстораж, зробити модалки, редактувати інпути реїстрації/логіну,
 const App = () => {
   return (
     <SafeAreaView style={{flex: 1}}>
