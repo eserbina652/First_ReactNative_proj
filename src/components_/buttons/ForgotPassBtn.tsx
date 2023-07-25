@@ -1,11 +1,13 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-import fonts from '../../assets/fonts/index.js';
+import fonts from '../../assets/fonts';
+import {useTranslation} from 'react-i18next';
 
 const ForgotPassBtn = () => {
+  const {t} = useTranslation();
   return (
     <TouchableOpacity style={styles.forgotPass_btn}>
-      <Text style={styles.forgotPass}>Forgot password?</Text>
+      <Text style={styles.forgotPass}>{t('forgotPass')}?</Text>
     </TouchableOpacity>
   );
 };

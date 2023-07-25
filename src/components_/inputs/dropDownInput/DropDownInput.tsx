@@ -1,16 +1,25 @@
 import React, {useState} from 'react';
-import {Text, TextInput, TouchableOpacity, View, ViewStyle} from 'react-native';
+import {
+  FlatList,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
 import {styles} from '../styles';
-import DropDownImg from '../../../assets/image/DropDownImg';
+import {countries} from '../../../api/data/dropdownData';
+import {DropDownImgSVG} from '../../../assets/image';
+import {useTranslation} from 'react-i18next';
 
 interface DropDownInputProps {
   inputStyle?: ViewStyle;
 }
+const options = countries;
 const DropDownInput = ({inputStyle}: DropDownInputProps) => {
+  const {t} = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
-
-  const options = ['Option 1', 'Option 2', 'Option 3'];
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -20,29 +29,42 @@ const DropDownInput = ({inputStyle}: DropDownInputProps) => {
     setSelectedOption(option);
     setIsOpen(false);
   };
+  const chosenCountry = t('chooseCountry');
 
   return (
     <View>
       <View style={[styles.inputs, styles.dropdownInput]}>
         <TextInput
-          placeholder={selectedOption || 'Choose your Country'}
+          value={selectedOption}
+          placeholder={chosenCountry}
           style={[inputStyle]}
         />
-        <TouchableOpacity onPress={toggleDropdown}>
-          <DropDownImg />
+        <TouchableOpacity
+          style={styles.dropdown_btn}
+          onPress={() => toggleDropdown()}>
+          <DropDownImgSVG />
         </TouchableOpacity>
       </View>
 
       {isOpen && (
         <View style={styles.dropdownOptions}>
-          {options.map((option, index) => (
-            <TouchableOpacity
-              key={index}
-              style={styles.option}
-              onPress={() => handleOptionSelect(option)}>
-              <Text>{option}</Text>
-            </TouchableOpacity>
-          ))}
+          <FlatList
+            nestedScrollEnabled={true}
+            data={options}
+            keyExtractor={option => option.id}
+            style={styles.dropdownScroll}
+            renderItem={({item}) => (
+              <TouchableOpacity
+                key={item.id}
+                style={styles.option}
+                onPress={() =>
+                  handleOptionSelect(`${item.name} ${item.flag_emoji}`)
+                }>
+                <Text>{item.name}</Text>
+                <Text>{item.flag_emoji}</Text>
+              </TouchableOpacity>
+            )}
+          />
         </View>
       )}
     </View>

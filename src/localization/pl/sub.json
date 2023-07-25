@@ -1,0 +1,17 @@
+{
+  "emailMatches": "Email musi zawierać @ i nie może zawierać: <, >, [, ], :, ;",
+  "emailMin": "* Co najmniej 6 symboli",
+  "required": "Niezbędne",
+  "passwordMin": "Za małe, hasło musi zawierać co najmniej 8 symboli!",
+  "passwordMax": "Za długe, hasło musi zawierać nie więcej za 20 symboli!",
+  "passwordMatches": "hasło musi zawierać litery(A-z), liczby, specjalnie symboli",
+  "userNameMin": "* min 4 symboli",
+  "userNameMax": "* max 12 symboli",
+  "userNameMatches": "username musi zawierać tylko litery oraz liczby",
+  "nameMin": "* min 2 symboli",
+  "nameMax": "* max 15 symboli",
+  "nameMatches": "imię musi zawierać tylko litery",
+  "passConfirmNOT": "Twoje hasła nie pasują do siebie.",
+  "passConfirmMessage": "Hasła muszą pasować.",
+  "agree": "Regulamin musi zostać zaakceptowany."
+}

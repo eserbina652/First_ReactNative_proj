@@ -35,18 +35,18 @@
 // export default App;
 //
 import React from 'react';
-// import {StyleSheet} from 'react-native';
-// import SignIn from './src/screens/SignIn';
-import SignUp from './src/screens/SignUp';
+import './i18.config';
+import 'react-native-gesture-handler';
+import {SafeAreaView} from 'react-native';
+import Navigation from './src/navigation';
+//Todo:ПИТАННЯ: як зробити кнопку фіксованою, як переносити строки
+//Todo: підключити локалстораж, зробити модалки, редактувати інпути реїстрації/логіну,
 const App = () => {
   return (
-    <>
-      {/*<SignIn />*/}
-      <SignUp />
-    </>
+    <SafeAreaView style={{flex: 1}}>
+      <Navigation />
+    </SafeAreaView>
   );
 };
 
 export default App;
-
-// const styles = StyleSheet.create({});

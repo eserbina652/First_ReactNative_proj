@@ -1,0 +1,17 @@
+{
+  "emailMatches": "email must contain @ and can't contain: <, >, [, ], :, ;",
+  "emailMin": "* min 6 symbols",
+  "required": "required",
+  "passwordMin": "Too Short, password must contain not less then 8 symbols!",
+  "passwordMax": "Too Long, password must contain not more then 20 symbols!",
+  "passwordMatches": "Password must contain letters(A-z), numbers, special symbols",
+  "userNameMin": "* min 4 symbols",
+  "userNameMax": "* max 12 symbols",
+  "userNameMatches": "username must contain only letters and numbers",
+  "nameMin": "* min 2 symbols",
+  "nameMax": "* max 15 symbols",
+  "nameMatches": "name must contain only letters",
+  "passConfirmNOT": "Your passwords do not match.",
+  "passConfirmMessage": "Passwords must match.",
+  "agree": "The terms and conditions must be accepted."
+}

@@ -1,60 +1,49 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import fonts from '../assets/fonts';
-import Logo from '../components_/Logo';
-import SocialMediaBlock from '../components_/SocialMediaBlock';
-import SimpleInput from '../components_/inputs/VisibleSign/SimpleInput';
-import DropDownInput from '../components_/inputs/dropDownInput/DropDownInput';
-import SpecialInput from '../components_/inputs/UnvisibleSign/SpecialInput';
-import AgreeBtn from '../components_/checkBox/AgreeBtn';
+import {ScrollView, Text, View} from 'react-native';
+import Logo from '../components_/logo/Logo';
+import SocialMediaBlock from '../components_/socialMedia/SocialMediaBlock';
+import Registration from '../components_/registration/Registration';
+import {styles} from './styles';
+import {useTranslation} from 'react-i18next';
+import {RouteProp, useRoute} from '@react-navigation/native';
+import ChangeLangBtn from '../components_/buttons/ChangeLangBtn';
 
-interface SignUpProps {
-  registerText?: string;
-}
-const SignUp = ({registerText = 'Music Lovers'}: SignUpProps) => {
+type RootStackParamList = {
+  SignUp: {registerAs: string};
+};
+
+type SignUpRouteProp = RouteProp<RootStackParamList, 'SignUp'>;
+const SignUp = () => {
+  const {params} = useRoute<SignUpRouteProp>();
+  const {t} = useTranslation();
+  const text: string = params?.registerAs;
+  let upgradeText: string = '';
+  const checkVowelConsonant = (templateText: string) => {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    const firstLetter = templateText[0].toLowerCase();
+    const result = vowels.includes(firstLetter) ? 'an' : 'a';
+    upgradeText = `${t(result)} ${templateText}`;
+    return upgradeText;
+  };
+
+  if (text) {
+    checkVowelConsonant(text);
+  }
+
   return (
     <ScrollView style={styles.app_container}>
+      <ChangeLangBtn />
       <Logo />
       <View style={styles.under_logo_text}>
-        <Text>Registration {registerText}</Text>
-        <Text>Register with</Text>
+        <Text>
+          {t('registerAs')} {upgradeText}
+        </Text>
+        <Text>{t('registerWith')}</Text>
       </View>
       <SocialMediaBlock />
-      <View>
-        <Text>Public Information</Text>
-        <SimpleInput placeholder="Nickname" />
-        <Text>Private Information</Text>
-        <SimpleInput placeholder="Name" />
-        <SimpleInput placeholder="Email" />
-        <DropDownInput />
-        <Text>Account Security</Text>
-        <SpecialInput placeholder="Password" />
-        <SpecialInput placeholder="Re-enter Password" />
-      </View>
-      <View>
-        <AgreeBtn label="Terms and Conditions" />
-        <AgreeBtn label="Privacy Policy" />
-      </View>
+      <Registration />
     </ScrollView>
   );
 };
 
 export default SignUp;
-
-const styles = StyleSheet.create({
-  app_container: {
-    flex: 1,
-    padding: 30,
-    backgroundColor: '#FFF0F9',
-  },
-  register: {
-    fontFamily: fonts.ComfortaaVariableFontWght,
-    color: 'rgba(0,0,0,0.34)',
-    alignSelf: 'center',
-  },
-  under_logo_text: {
-    alignItems: 'center',
-    gap: 10,
-    marginBottom: 15,
-  },
-});
