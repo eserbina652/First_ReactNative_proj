@@ -39,6 +39,16 @@ import './i18.config';
 import 'react-native-gesture-handler';
 import {SafeAreaView} from 'react-native';
 import Navigation from './src/navigation';
+
+// Todo: вибір країн не такий широкий
+// Todo: повинно листатися до низу
+
+// Todo: сайд меню закінчити
+// Todo: прибрати все що не працює,
+// Todo: лог аут!
+// Todo: додати підсвічення полів
+// Todo: Асінк стораж
+
 //Todo:ПИТАННЯ: як зробити кнопку фіксованою, як переносити строки
 //Todo: підключити локалстораж, зробити модалки, редактувати інпути реїстрації/логіну,
 const App = () => {
