@@ -19,7 +19,9 @@ export const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
   },
   inputErr: {
-    marginTop: 10,
+    marginBottom: 10,
+    marginTop: 5,
+    marginLeft: 10,
     color: 'red',
   },
   specialInput: {
@@ -34,10 +36,10 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    maxHeight: 70,
   },
   dropdown_btn: {
     alignItems: 'flex-end',
-    paddingVertical: 5,
     paddingHorizontal: 15,
   },
   dropdownOptions: {

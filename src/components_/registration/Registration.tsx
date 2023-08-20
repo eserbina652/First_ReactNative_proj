@@ -48,7 +48,7 @@ const Registration = () => {
   };
   const handleSubmit = (parameters: InputsValues) => {
     navigation.navigate(ScreensName.LOGGED_IN_STACK, {
-      screen: ScreensName.STREAM,
+      screen: ScreensName.DRAWER_STACK,
       // @ts-ignore
       params: {
         name: parameters.name,

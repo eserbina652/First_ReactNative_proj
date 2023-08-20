@@ -3,7 +3,7 @@ import {Path, Svg} from 'react-native-svg';
 
 const DropDownImgSVG = () => {
   return (
-    <Svg width="9" height="5" viewBox="0 0 9 5" fill="none">
+    <Svg width="10" height="10" viewBox="0 0 9 5" fill="none">
       <Path
         fill-rule="evenodd"
         clip-rule="evenodd"

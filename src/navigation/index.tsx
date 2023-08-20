@@ -13,8 +13,7 @@ export default () => {
       <MainStack.Navigator
         screenOptions={{
           headerShown: false,
-          // @ts-ignore
-          header: null,
+          header: () => null,
           animation: 'slide_from_right',
         }}
         initialRouteName={ScreensName.LOGGED_OUT_STACK}>

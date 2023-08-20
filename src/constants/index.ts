@@ -3,7 +3,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 export enum ScreensName {
   SIGN_IN = 'SignIn',
   SIGN_UP = 'SignUp',
-  STREAM = 'Stream',
+  // STREAM = 'Stream',
   LOGGED_IN_STACK = 'LOGGED_IN_STACK',
   LOGGED_OUT_STACK = 'LOGGED_OUT_STACK',
   FORECAST = 'Forecast', //Gallery
@@ -34,7 +34,6 @@ export type MainNavigationStack = {
 };
 
 export type LoggedInTypeNavigation = {
-  [ScreensName.STREAM]: {params?: {email?: string; name?: string}};
   [ScreensName.DRAWER_STACK]?: {screen?: keyof typeof DrawerRoutes};
 };
 export type LoggedOutTypeNavigation = {
@@ -47,6 +46,7 @@ export type LoggedOutTypeNavigation = {
 
 export type DrawerTypeNavigation = {
   [ScreensName.TAB_BAR_STACK]: {screen?: keyof typeof TabBarRoutes};
+  [ScreensName.DRAWER_STACK]: {screen?: keyof typeof DrawerRoutes};
 };
 
 export type TabTypeNavigation = {
@@ -73,7 +73,6 @@ const UnknownRedirectRoutes = {
 };
 
 export const LoggedInRoutes = {
-  [ScreensName.STREAM]: ScreensName.STREAM,
   [ScreensName.DRAWER_STACK]: ScreensName.DRAWER_STACK,
 };
 
@@ -83,7 +82,7 @@ const LoggedOutRoutes = {
 };
 
 const DrawerRoutes = {
-  [ScreensName.TAB_BAR_STACK]: ScreensName.TAB_BAR_STACK,
+  [ScreensName.DRAWER_STACK]: ScreensName.DRAWER_STACK,
 };
 
 export const TabBarRoutes = {

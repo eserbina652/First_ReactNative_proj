@@ -1,32 +1,35 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {ProfileIMG} from '../../assets/image';
 import ShareBtn from '../buttons/ShareBtn';
 import RedirectBtn from '../buttons/RedirectBtn';
 import React from 'react';
 import {ScreensName} from '../../constants';
+import {styles} from './styles';
 
 export default () => {
   return (
     <View style={styles.mainContainer}>
-      <View>
-        <Image source={ProfileIMG} />
-        <Text>Dima Kisov</Text>
+      <View style={styles.header}>
+        <View style={styles.imageWrap}>
+          <Image style={styles.image} source={ProfileIMG} />
+        </View>
+        <Text style={styles.username}>Dima Kisov</Text>
       </View>
-      <View>
-        <View>
+      <View style={styles.menuItemWrap}>
+        <View style={styles.menuItem}>
           <Text style={styles.screenText}>Profile</Text>
           <RedirectBtn redirectTo={ScreensName.PROFILE} />
         </View>
-        <View>
+        <View style={styles.menuItem}>
           <Text style={styles.screenText}>Language</Text>
-          <View>
+          <View style={styles.itemElements}>
             <Text>🇵🇱</Text>
             <RedirectBtn redirectTo={ScreensName.LANGUAGE} />
           </View>
         </View>
-        <View>
+        <View style={styles.menuItem}>
           <Text style={styles.screenText}>Invite Friend</Text>
-          <View>
+          <View style={styles.itemElements}>
             <ShareBtn />
             <RedirectBtn redirectTo={ScreensName.FRIEND} />
           </View>
@@ -38,18 +41,3 @@ export default () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  mainContainer: {
-    padding: 20,
-    justifyContent: 'space-between',
-    flex: 1,
-  },
-  screenText: {fontSize: 18, fontWeight: '700', color: 'grey'},
-  logOut: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: 'grey',
-    alignSelf: 'flex-end',
-  },
-});

@@ -1,7 +1,6 @@
 import React from 'react';
 import {ScrollView, Text, View} from 'react-native';
 import Logo from '../components_/logo/Logo';
-import SocialMediaBlock from '../components_/socialMedia/SocialMediaBlock';
 import Registration from '../components_/registration/Registration';
 import {styles} from './styles';
 import {useTranslation} from 'react-i18next';
@@ -38,9 +37,7 @@ const SignUp = () => {
         <Text>
           {t('registerAs')} {upgradeText}
         </Text>
-        <Text>{t('registerWith')}</Text>
       </View>
-      <SocialMediaBlock />
       <Registration />
     </ScrollView>
   );

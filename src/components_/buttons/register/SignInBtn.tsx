@@ -14,7 +14,7 @@ const SignInBtn = ({handleSubmit, disabled, values}: SignInBtnProps) => {
   const navigation = useNavigation();
   const navigateToTabStack = () => {
     // @ts-ignore
-    navigation.navigate(ScreensName.TAB_BAR_STACK);
+    navigation.navigate(ScreensName.DRAWER_STACK);
   };
   const {t} = useTranslation();
   return (

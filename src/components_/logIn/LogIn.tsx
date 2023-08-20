@@ -1,12 +1,9 @@
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
-import ForgotPassBtn from '../buttons/ForgotPassBtn';
-import SignInBtn from '../buttons/signIn/SignInBtn';
+import {View} from 'react-native';
+import SignInBtn from '../buttons/register/SignInBtn';
 import Input from '../inputs/Input';
-import SocialMediaBlock from '../socialMedia/SocialMediaBlock';
 import Logo from '../logo/Logo';
 import {styles} from './styles';
-import {useTranslation} from 'react-i18next';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 import {Formik, FormikValues} from 'formik';
 import {signInSchema} from '../../validation/authValidation';
@@ -17,7 +14,6 @@ interface InputsValues {
   password: boolean;
 }
 const LogIn = () => {
-  const {t} = useTranslation();
   const navigation = useNavigation();
   const [touched, setTouched] = useState<InputsValues>({
     email: false,
@@ -34,7 +30,7 @@ const LogIn = () => {
           {
             name: ScreensName.LOGGED_IN_STACK,
             params: {
-              screen: ScreensName.STREAM,
+              screen: ScreensName.DRAWER_STACK,
               params: {
                 email: parameters.email,
               },
@@ -75,7 +71,7 @@ const LogIn = () => {
                 onFocus={() => onFocusField('password')}
               />
             </View>
-            <ForgotPassBtn />
+            {/*<ForgotPassBtn />*/}
             <View style={styles.logIn_wrap}>
               <SignInBtn
                 values={values}
@@ -86,10 +82,9 @@ const LogIn = () => {
           </View>
         )}
       </Formik>
-      <View style={styles.logIn_wrap}>
-        <Text style={styles.signWith}>{t('signInWith')}</Text>
-      </View>
-      <SocialMediaBlock />
+      {/*<View style={styles.logIn_wrap}>*/}
+      {/*  <Text style={styles.signWith}>{t('signInWith')}</Text>*/}
+      {/*</View>*/}
       <View />
     </View>
   );

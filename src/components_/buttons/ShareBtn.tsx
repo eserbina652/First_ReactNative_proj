@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, TouchableOpacity} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {AddPNG} from '../../assets/image';
 import Share from 'react-native-share';
 const ShareBtn = () => {
@@ -15,10 +15,23 @@ const ShareBtn = () => {
       .catch(err => console.log('Ошибка при попытке поделиться:', err));
   };
   return (
-    <TouchableOpacity onPress={openShareMenu}>
-      <Image source={AddPNG} />
+    <TouchableOpacity style={styles.imageWrap} onPress={openShareMenu}>
+      <Image style={styles.image} source={AddPNG} />
     </TouchableOpacity>
   );
 };
 
 export default ShareBtn;
+
+const styles = StyleSheet.create({
+  imageWrap: {
+    width: 20,
+    height: 20,
+    borderRadius: 50,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    // borderRadius: 50,
+  },
+});

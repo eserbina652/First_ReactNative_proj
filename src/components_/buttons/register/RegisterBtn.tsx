@@ -15,7 +15,7 @@ const RegisterBtn = ({handleSubmit, disabled}: RegisterBtnProps) => {
   const navigation = useNavigation<NavigationProp<TabTypeNavigation, string>>();
   const navigateToTabStack = () => {
     // @ts-ignore
-    navigation.navigate(ScreensName.TAB_BAR_STACK);
+    navigation.navigate(ScreensName.DRAWER_STACK);
   };
   return (
     <TouchableOpacity

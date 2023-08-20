@@ -11,7 +11,6 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   logIn_wrap: {
-    gap: 25,
-    marginBottom: 25,
+    marginVertical: 25,
   },
 });

@@ -1,17 +1,17 @@
 // @ts-ignore
 import * as Yup from 'yup';
 
-const emailRegexp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const emailRegexp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,}$/;
 
 const usernameRegexp = /^[a-zA-Z0-9_-]{4,12}$/;
-const nameRegexp = /^[A-Za-z]{2,15}$/;
+const nameRegexp = /^[A-Za-zА-Яа-яІіЇїЄєҐґĄąĆćĘęŁłŃńÓóŚśŹźŻż]{2,15}$/;
 const passRegexp =
   /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
 
 export const signInSchema = Yup.object()
   .shape({
     email: Yup.string()
-      .min(6, 'emailMin')
+      .min(5, 'emailMin')
       .matches(emailRegexp, 'emailMatches')
       .required('required'),
     password: Yup.string()
@@ -24,7 +24,7 @@ export const signInSchema = Yup.object()
 export const signUpSchema = Yup.object()
   .shape({
     email: Yup.string()
-      .min(6, 'emailMin')
+      .min(5, 'emailMin')
       .matches(emailRegexp, 'emailMatches')
       .required('required'),
     username: Yup.string()

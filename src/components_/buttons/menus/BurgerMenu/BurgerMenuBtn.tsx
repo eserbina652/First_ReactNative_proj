@@ -5,7 +5,6 @@ import {useNavigation, DrawerActions} from '@react-navigation/native';
 const BurgerMenuBtn = () => {
   const navigation = useNavigation();
   const openDrawer = () => {
-    console.log('Bylo');
     navigation.dispatch(DrawerActions.toggleDrawer());
   };
   return (

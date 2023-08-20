@@ -1,6 +1,6 @@
 {
   "emailMatches": "email must contain @ and can't contain: <, >, [, ], :, ;",
-  "emailMin": "* min 6 symbols",
+  "emailMin": "* min 5 symbols",
   "required": "required",
   "passwordMin": "Too Short, password must contain not less then 8 symbols!",
   "passwordMax": "Too Long, password must contain not more then 20 symbols!",
