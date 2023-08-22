@@ -1,5 +1,11 @@
 import {CompositeNavigationProp, ParamListBase} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import Languages from '../screens/Languages';
+import Profile from '../screens/Profile';
+// import DrawerNavigation from '../navigation/DrawerNavigation';
+// import loggedInStack from '../navigation/LoggedInStack';
+import tabBarNavigation from '../navigation/TabBarNavigation';
+import drawerNavigation from '../navigation/DrawerNavigation';
 export enum ScreensName {
   SIGN_IN = 'SignIn',
   SIGN_UP = 'SignUp',
@@ -34,7 +40,8 @@ export type MainNavigationStack = {
 };
 
 export type LoggedInTypeNavigation = {
-  [ScreensName.DRAWER_STACK]?: {screen?: keyof typeof DrawerRoutes};
+  [ScreensName.DRAWER_STACK]?: {screen?: keyof typeof drawerNavigation};
+  [ScreensName.TAB_BAR_STACK]?: {screen?: keyof typeof tabBarNavigation};
 };
 export type LoggedOutTypeNavigation = {
   [ScreensName.SIGN_IN]: undefined;
@@ -45,8 +52,9 @@ export type LoggedOutTypeNavigation = {
 };
 
 export type DrawerTypeNavigation = {
+  [ScreensName.LANGUAGE]: {screen?: keyof typeof Languages};
+  [ScreensName.PROFILE]: {screen?: keyof typeof Profile};
   [ScreensName.TAB_BAR_STACK]: {screen?: keyof typeof TabBarRoutes};
-  [ScreensName.DRAWER_STACK]: {screen?: keyof typeof DrawerRoutes};
 };
 
 export type TabTypeNavigation = {
@@ -73,7 +81,7 @@ const UnknownRedirectRoutes = {
 };
 
 export const LoggedInRoutes = {
-  [ScreensName.DRAWER_STACK]: ScreensName.DRAWER_STACK,
+  [ScreensName.TAB_BAR_STACK]: ScreensName.TAB_BAR_STACK,
 };
 
 const LoggedOutRoutes = {

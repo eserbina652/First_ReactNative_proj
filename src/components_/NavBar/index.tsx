@@ -10,6 +10,7 @@ interface NavbarProps {
   withIcon?: boolean;
   burgerMenu?: boolean;
   filterMenu?: boolean;
+  withDrawer?: boolean;
 }
 export default ({
   title,

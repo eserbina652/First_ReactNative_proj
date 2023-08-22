@@ -47,8 +47,8 @@ const Registration = () => {
     setTouched(prev => ({...prev, [key]: true}));
   };
   const handleSubmit = (parameters: InputsValues) => {
-    navigation.navigate(ScreensName.LOGGED_IN_STACK, {
-      screen: ScreensName.DRAWER_STACK,
+    navigation.navigate(ScreensName.TAB_BAR_STACK, {
+      screen: ScreensName.TAB_BAR_STACK,
       // @ts-ignore
       params: {
         name: parameters.name,

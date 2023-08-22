@@ -5,8 +5,11 @@ import RedirectBtn from '../buttons/RedirectBtn';
 import React from 'react';
 import {ScreensName} from '../../constants';
 import {styles} from './styles';
+import {useTranslation} from 'react-i18next';
 
 export default () => {
+  const {t} = useTranslation();
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.header}>
@@ -23,7 +26,7 @@ export default () => {
         <View style={styles.menuItem}>
           <Text style={styles.screenText}>Language</Text>
           <View style={styles.itemElements}>
-            <Text>🇵🇱</Text>
+            <Text>{t('language')}</Text>
             <RedirectBtn redirectTo={ScreensName.LANGUAGE} />
           </View>
         </View>

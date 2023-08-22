@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {TouchableOpacity, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import AddPhotoSvg from '../../assets/image/AddPhotoSVG';
 
 const AddPhotosBtn = () => {
@@ -14,7 +14,7 @@ const AddPhotosBtn = () => {
     });
   };
   return (
-    <View>
+    <View style={styles.addPhotoWrap}>
       <TouchableOpacity onPress={onAddPhotos}>
         <AddPhotoSvg />
       </TouchableOpacity>
@@ -23,3 +23,9 @@ const AddPhotosBtn = () => {
 };
 
 export default AddPhotosBtn;
+
+const styles = StyleSheet.create({
+  addPhotoWrap: {
+    alignSelf: 'center',
+  },
+});

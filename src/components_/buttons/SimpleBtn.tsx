@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
-
+import {styles} from './modalssBtns';
 interface SimpleBtnProps {
   text: string;
 }
@@ -9,8 +9,8 @@ const SimpleBtn = ({text}: SimpleBtnProps) => {
     //do something
   };
   return (
-    <TouchableOpacity onPress={onClick}>
-      <Text>{text}</Text>
+    <TouchableOpacity style={styles.active_btn} onPress={onClick}>
+      <Text style={styles.login_btn_text}>{text}</Text>
     </TouchableOpacity>
   );
 };

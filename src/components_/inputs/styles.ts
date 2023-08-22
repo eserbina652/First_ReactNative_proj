@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   inputs: {
     backgroundColor: 'white',
-    borderColor: 'lightgray',
+    borderColor: '#E7E7E7',
     borderWidth: 1,
     fontSize: 13,
     minWidth: '100%',
@@ -36,7 +36,8 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    maxHeight: 70,
+    paddingHorizontal: 20,
+    paddingVertical: 5,
   },
   dropdown_btn: {
     alignItems: 'flex-end',

@@ -3,7 +3,10 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {Dimensions} from 'react-native';
 import {DrawerTypeNavigation, ScreensName} from '../constants';
 import DrawerContent from '../components_/DrawerContent';
-import TabBarNavigation from './TabBarNavigation';
+import Profile from '../screens/Profile';
+import Languages from '../screens/Languages';
+import NavBar from '../components_/NavBar';
+import tabBarNavigation from './TabBarNavigation';
 
 const Drawer = createDrawerNavigator<DrawerTypeNavigation>();
 const width = Dimensions.get('window').width;
@@ -11,7 +14,7 @@ const DrawerNavigation = () => {
   return (
     <Drawer.Navigator
       drawerContent={() => <DrawerContent />}
-      initialRouteName={ScreensName.DRAWER_STACK}
+      initialRouteName={ScreensName.TAB_BAR_STACK}
       screenOptions={{
         headerShown: false,
         drawerPosition: 'left',
@@ -24,8 +27,40 @@ const DrawerNavigation = () => {
       }}>
       <Drawer.Screen
         name={ScreensName.TAB_BAR_STACK}
-        options={{headerShown: false}}
-        component={TabBarNavigation}
+        options={{
+          headerShown: false,
+        }}
+        component={tabBarNavigation}
+      />
+      <Drawer.Screen
+        name={ScreensName.PROFILE}
+        options={{
+          header: () => (
+            <NavBar
+              title={'MY PROFILE'}
+              burgerMenu={false}
+              withIcon={true}
+              filterMenu={true}
+            />
+          ),
+          headerShown: true,
+        }}
+        component={Profile}
+      />
+      <Drawer.Screen
+        name={ScreensName.LANGUAGE}
+        options={{
+          header: () => (
+            <NavBar
+              title={'MY LANGUAGES'}
+              burgerMenu={false}
+              withIcon={true}
+              filterMenu={true}
+            />
+          ),
+          headerShown: true,
+        }}
+        component={Languages}
       />
     </Drawer.Navigator>
   );

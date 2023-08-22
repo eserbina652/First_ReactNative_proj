@@ -17,6 +17,8 @@ import RightArrowSVG from './RightArrowSVG';
 import DoubleDotsSVG from './DoubleDotsSVG';
 import AddPhotoSVG from './AddPhotoSVG';
 import ChangeAvatarSVG from './ChangeAvatarSVG';
+import SuccessSVG from './SuccessSVG';
+import TabToAddSVG from './TabToAddSVG';
 const MusicIconFirstPNG = require('./MusicIconFirstPNG.png');
 const MusicIconSecondPNG = require('./MusicIconSecondPNG.png');
 const MusicIconThirdPNG = require('./MusicIconThirdPNG.png');
@@ -29,6 +31,8 @@ export {
   DoubleDotsSVG,
   AddPhotoSVG,
   ChangeAvatarSVG,
+  SuccessSVG,
+  TabToAddSVG,
   AddPNG,
   ProfileIMG,
   MusicIconFirstPNG,

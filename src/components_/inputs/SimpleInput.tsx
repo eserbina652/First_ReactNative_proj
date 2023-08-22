@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {TextInput} from 'react-native';
+import {StyleSheet, TextInput} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 interface SimpleInputProps {
@@ -11,6 +11,7 @@ const SimpleInput = ({placeholder}: SimpleInputProps) => {
   const translatedPlaceholder = t(placeholder) || placeholder;
   return (
     <TextInput
+      style={styles.input}
       placeholder={translatedPlaceholder}
       value={value}
       onChangeText={text => setValue(text)}
@@ -19,3 +20,15 @@ const SimpleInput = ({placeholder}: SimpleInputProps) => {
 };
 
 export default SimpleInput;
+
+const styles = StyleSheet.create({
+  input: {
+    width: '100%',
+    fontSize: 16,
+    paddingHorizontal: 25,
+    paddingVertical: 15,
+    borderRadius: 10,
+    borderColor: '#E7E7E7',
+    borderWidth: 1,
+  },
+});

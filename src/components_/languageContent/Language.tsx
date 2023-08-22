@@ -1,21 +1,34 @@
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {ILanguages} from '../../api/data/languagesData';
-import ChooseBtn from '../checkBox/ChooseBtn';
+import {useTranslation} from 'react-i18next';
+import {AgreeSignSVG} from '../../assets/image';
 
 interface LanguageProps {
   item: ILanguages;
 }
 const Language = ({item}: LanguageProps) => {
-  //як зробити редірект
+  const {t, i18n} = useTranslation();
+  const currentLanguage = i18n.language;
+  const [chosen, setChosen] = useState(item.translateKey === currentLanguage);
+
+  useEffect(() => {
+    setChosen(item.translateKey === currentLanguage);
+  }, [currentLanguage, item.translateKey]);
+
+  const changeCurrLang = () => {
+    i18n.changeLanguage(item.translateKey);
+  };
   return (
-    <View style={[styles.elContainer, item.isChecked && styles.chosen]}>
+    <TouchableOpacity
+      onPress={changeCurrLang}
+      style={[styles.elContainer, chosen && styles.chosen]}>
       <View style={styles.header}>
         <Text>{item.img}</Text>
-        <Text>{item.langName}</Text>
+        <Text>{t(item.langName)}</Text>
       </View>
-      <ChooseBtn isChecked={item.isChecked} />
-    </View>
+      {chosen && <AgreeSignSVG />}
+    </TouchableOpacity>
   );
 };
 
@@ -25,14 +38,15 @@ const styles = StyleSheet.create({
   elContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 18,
     alignItems: 'center',
-    paddingVertical: 16,
+    padding: 16,
+    marginBottom: 5,
   },
   header: {
     flexDirection: 'row',
     gap: 14,
-    alignItems: 'center',
+    color: 'black',
+    fontSize: 15,
   },
   chosen: {
     borderRadius: 15,

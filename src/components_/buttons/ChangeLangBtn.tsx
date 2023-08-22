@@ -20,7 +20,7 @@ const ChangeLangBtn = () => {
     });
   };
   return (
-    <TouchableOpacity style={styles.buttonWrapp} onPress={handleClick}>
+    <TouchableOpacity style={styles.buttonWrap} onPress={handleClick}>
       <Text style={styles.text}>{t('language')}</Text>
     </TouchableOpacity>
   );
@@ -29,14 +29,11 @@ const ChangeLangBtn = () => {
 export default ChangeLangBtn;
 
 const styles = StyleSheet.create({
-  buttonWrapp: {
-    paddingVertical: 5,
-    paddingHorizontal: 15,
-    backgroundColor: '#FF0090',
-    borderRadius: 10,
+  buttonWrap: {
     width: '15%',
   },
   text: {
+    fontSize: 25,
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
