@@ -31,5 +31,22 @@
   "favourites":  "Favourites",
   "en": "English",
   "uk":"Ukrainian",
-  "pl": "Polish"
+  "pl": "Polish",
+  "uploadPhotosFor": "Upload photos for media use",
+  "namePhoto": "Enter name of photo",
+  "descPhoto":"Add some description",
+  "addPhotoBtn": "Add photo",
+  "songName": "Paris In The Rain",
+  "songAuthor": "Lauv",
+  "countryName": "USA",
+  "privatInfo": "Private Information",
+  "publicInfo": "Public Information",
+  "occupation": "Occupation",
+  "webSocialLinks": "Web & Social links",
+  "save": "Save Changes",
+  "photos": "Photos",
+  "addLinkVideo": "Add link video",
+  "profile": "MY PROFILE",
+  "currentLanguage": "Language",
+  "friend": "Invite Friend"
 }

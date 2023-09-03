@@ -23,7 +23,7 @@ export default () => {
         name={ScreensName.FORECAST}
         options={{
           header: () => (
-            <NavBar title={'Forecast'} burgerMenu={true} filterMenu={true} />
+            <NavBar title={'forecast'} burgerMenu={true} filterMenu={true} />
           ),
           headerShown: true,
         }}
@@ -33,7 +33,7 @@ export default () => {
         name={ScreensName.FINANCE}
         options={{
           header: () => (
-            <NavBar title={'Finance'} burgerMenu={true} filterMenu={true} />
+            <NavBar title={'finance'} burgerMenu={true} filterMenu={true} />
           ),
           headerShown: true,
         }}
@@ -43,7 +43,7 @@ export default () => {
         name={ScreensName.FAVOURITES}
         options={{
           header: () => (
-            <NavBar title={'Favourites'} burgerMenu={true} filterMenu={true} />
+            <NavBar title={'favourites'} burgerMenu={true} filterMenu={true} />
           ),
           headerShown: true,
         }}

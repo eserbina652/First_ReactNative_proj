@@ -3,11 +3,13 @@ import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {FavoritesSVG, FullFavouritesSVG} from '../../../assets/image';
 import {FavouritesData} from '../../../api/data/favouritesData';
 import {styles} from './styles';
+import {useTranslation} from 'react-i18next';
 
 interface MusicElementProps {
   item: FavouritesData;
 }
 const MusicElement = ({item}: MusicElementProps) => {
+  const {t} = useTranslation();
   const [favourite, setFavourite] = useState(item.description.star);
   return (
     <View key={item.id} style={[styles.mainContainer, styles.rowContainer]}>
@@ -16,13 +18,13 @@ const MusicElement = ({item}: MusicElementProps) => {
           <Image source={item.mainIcon} style={styles.img} />
         </View>
         <View style={styles.gap}>
-          <Text style={styles.musicName}>{item.name}</Text>
-          <Text>{item.author}</Text>
+          <Text style={styles.musicName}>{t(item.name)}</Text>
+          <Text>{t(item.author)}</Text>
         </View>
       </View>
       <View style={[styles.descriptionContainer, styles.gap]}>
         <View style={styles.rowContainer}>
-          <Text style={styles.countryName}>{item.description.country}</Text>
+          <Text style={styles.countryName}>{t(item.description.country)}</Text>
           <Text>{item.description.flag}</Text>
         </View>
         <View style={[styles.rowContainer, styles.gap]}>

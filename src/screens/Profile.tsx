@@ -3,11 +3,13 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import SimpleInput from '../components_/inputs/SimpleInput';
 import DropDownInput from '../components_/inputs/dropDownInput/DropDownInput';
 import OpenSuccessBtn from '../components_/buttons/modalssBtns/open/OpenSuccessBtn';
-import AddPhotosBtn from '../components_/buttons/AddPhotosBtn';
 import Avatar from '../components_/profileContent/Avatar';
 import DeleteAccountBtn from '../components_/buttons/deleteAccount/DeleteAccountBtn';
+import OpenAddPhotosBtn from '../components_/buttons/AddPhotosBtn';
+import {useTranslation} from 'react-i18next';
 
 const Profile = () => {
+  const {t} = useTranslation();
   return (
     <ScrollView>
       <View style={styles.profile}>
@@ -15,7 +17,7 @@ const Profile = () => {
           <Avatar />
         </View>
         <View style={styles.profileBlock}>
-          <Text style={styles.bloksHeader}>Private Information</Text>
+          <Text style={styles.bloksHeader}>{t('privatInfo')}</Text>
           <SimpleInput placeholder={'name'} />
           <SimpleInput placeholder={'email'} />
           <SimpleInput placeholder={'username'} />
@@ -23,8 +25,8 @@ const Profile = () => {
           {/*Інпут Дати*/}
         </View>
         <View style={styles.profileBlock}>
-          <Text style={styles.bloksHeader}>Public Information</Text>
-          <SimpleInput placeholder={'Occupation'} />
+          <Text style={styles.bloksHeader}>{t('publicInfo')}</Text>
+          <SimpleInput placeholder={'occupation'} />
           <SimpleInput
             placeholder={
               'Як зробити висоту еластичною?????????????????7I’m very good girl, music lover, Justin Bieber biggest fan and social employer. Id like to use change the world!'
@@ -32,20 +34,20 @@ const Profile = () => {
           />
         </View>
         <View style={styles.profileBlock}>
-          <Text style={styles.bloksHeader}>Web & Social links</Text>
+          <Text style={styles.bloksHeader}>{t('webSocialLinks')}</Text>
           <SimpleInput placeholder={'Facebook'} />
           <SimpleInput placeholder={'Instagram'} />
           <SimpleInput placeholder={'Twitter'} />
           <SimpleInput placeholder={'Website'} />
         </View>
-        <OpenSuccessBtn text={'Save Changes'} />
+        <OpenSuccessBtn text={'save'} />
         <View style={styles.profileBlock}>
-          <Text style={styles.bloksHeader}>Photos</Text>
-          <AddPhotosBtn />
+          <Text style={styles.bloksHeader}>{t('photos')}</Text>
+          <OpenAddPhotosBtn />
         </View>
         <View style={styles.profileBlock}>
           <Text style={styles.bloksHeader}>Videos</Text>
-          <SimpleInput placeholder={'Add link video'} />
+          <SimpleInput placeholder={t('addLinkVideo')} />
         </View>
         <DeleteAccountBtn />
       </View>

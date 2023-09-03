@@ -7,12 +7,13 @@ import {Formik, FormikValues} from 'formik';
 import {signUpSchema} from '../../validation/authValidation';
 import RegisterBtn from '../buttons/register/RegisterBtn';
 import {useTranslation} from 'react-i18next';
-import {useNavigation} from '@react-navigation/native';
+import {CommonActions, useNavigation} from '@react-navigation/native';
 import {
   LoggedInTypeNavigation,
   NavigationProp,
   ScreensName,
 } from '../../constants';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface TouchedInputsValues {
   username: boolean;
@@ -46,14 +47,43 @@ const Registration = () => {
   const onFocusField = (key: string) => {
     setTouched(prev => ({...prev, [key]: true}));
   };
-  const handleSubmit = (parameters: InputsValues) => {
-    navigation.navigate(ScreensName.TAB_BAR_STACK, {
-      screen: ScreensName.TAB_BAR_STACK,
-      // @ts-ignore
-      params: {
+  const handleSubmit = async (parameters: InputsValues) => {
+    try {
+      const registerData = {
+        username: parameters.username,
         name: parameters.name,
-      },
-    });
+        email: parameters.email,
+        //Додати країну
+      };
+      await AsyncStorage.setItem('loginData', JSON.stringify(registerData));
+      const registerDataGet = await AsyncStorage.getItem('registerData');
+      console.log('DATA FROM LOGIN', registerDataGet);
+      // navigation.navigate(ScreensName.TAB_BAR_STACK, {
+      //   screen: ScreensName.TAB_BAR_STACK,
+      //   // @ts-ignore
+      //   params: {
+      //     name: parameters.name,
+      //   },
+      // });
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 1,
+          routes: [
+            {
+              name: ScreensName.LOGGED_IN_STACK,
+              params: {
+                screen: ScreensName.DRAWER_STACK,
+                params: {
+                  email: parameters.email,
+                },
+              },
+            },
+          ],
+        }),
+      );
+    } catch (e) {
+      console.log('Error occurred by registration', e);
+    }
   };
   return (
     <View>

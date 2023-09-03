@@ -1,14 +1,14 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
 import {
   LoggedOutNavigation,
   NavigationProp,
   ScreensName,
-} from '../../../constants';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+} from '../../constants';
 
-const DeleteAccountBtn = () => {
+const LogOutBtn = () => {
   const navigation =
     useNavigation<NavigationProp<LoggedOutNavigation, string>>();
   const onLogOut = async () => {
@@ -23,25 +23,19 @@ const DeleteAccountBtn = () => {
     }
   };
   return (
-    <TouchableOpacity onPress={onLogOut} style={styles.active_btn}>
-      <Text style={styles.login_btn_text}>Delete Account</Text>
+    <TouchableOpacity onPress={onLogOut} style={styles.logOut}>
+      <Text>LogOut</Text>
     </TouchableOpacity>
   );
 };
 
-export default DeleteAccountBtn;
+export default LogOutBtn;
 
 const styles = StyleSheet.create({
-  active_btn: {
-    maxWidth: '80%',
-    minWidth: '80%',
-    backgroundColor: '#FFF8FC',
-    borderRadius: 10,
-    padding: 16,
-    alignSelf: 'center',
-  },
-  login_btn_text: {
-    color: 'deeppink',
-    alignSelf: 'center',
+  logOut: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: 'grey',
+    alignSelf: 'flex-start',
   },
 });

@@ -2,12 +2,9 @@ import React from 'react';
 import {Modal, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {styles} from '../buttons/modalssBtns';
 import SuccessSvg from '../../assets/image/SuccessSVG';
+import {ModalProps} from './interface';
 
-interface SuccessProps {
-  modalOnChangeState: React.Dispatch<React.SetStateAction<boolean>>;
-  modalCurrentState: boolean;
-}
-const Success = ({modalOnChangeState, modalCurrentState}: SuccessProps) => {
+const Success = ({modalOnChangeState, modalCurrentState}: ModalProps) => {
   const closeModal = () => {
     modalOnChangeState(false);
   };

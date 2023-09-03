@@ -4,3 +4,5 @@ export const profileData = {
   avatar: ProfileIMG,
   userPhotos: [],
 };
+
+export const photosData = [];

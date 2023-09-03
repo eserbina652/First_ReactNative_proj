@@ -37,7 +37,7 @@ const DrawerNavigation = () => {
         options={{
           header: () => (
             <NavBar
-              title={'MY PROFILE'}
+              title={'profile'}
               burgerMenu={false}
               withIcon={true}
               filterMenu={true}

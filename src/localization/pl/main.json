@@ -31,5 +31,22 @@
   "favourites":  "Ulubione",
   "en": "Angielski",
   "uk":"Ukraiński",
-  "pl": "Polski"
+  "pl": "Polski",
+  "uploadPhotosFor": "Dodaj zdjęcia do użytku medialnego",
+  "namePhoto": "Wprowadź nazwę zdjęcia",
+  "descPhoto": "Dodaj opis",
+  "addPhotoBtn": "Dodaj zdjęcie",
+  "songName": "Paryż w deszczu",
+  "songAuthor": "Lauv",
+  "countryName": "USA",
+  "privatInfo": "Informacje prywatne",
+  "publicInfo": "Informacje publiczne",
+  "occupation": "Zawód",
+  "webSocialLinks": "Strona internetowa i linki społecznościowe",
+  "save": "Zapisz zmiany",
+  "photos": "Zdjęcia",
+  "addLinkVideo": "Dodaj link do wideo",
+  "profile": "MÓJ PROFIL",
+  "currentLanguage": "Język",
+  "friend": "Zaprosić pszyjaciele"
 }

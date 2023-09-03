@@ -10,12 +10,6 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     color: 'black',
   },
-  logOut: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: 'grey',
-    alignSelf: 'flex-start',
-  },
   header: {
     gap: 20,
     flexDirection: 'row',

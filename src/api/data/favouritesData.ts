@@ -20,11 +20,11 @@ export interface FavouritesData {
 export const favourites: FavouritesData[] = [
   {
     mainIcon: MusicIconFirstPNG,
-    name: 'Paris In The Rain',
-    author: 'Lauv',
+    name: 'songName',
+    author: 'songAuthor',
     id: 1,
     description: {
-      country: 'USA',
+      country: 'countryName',
       flag: '🇺🇸',
       vp: 'VP 12355',
       star: false,

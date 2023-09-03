@@ -8,6 +8,7 @@ import {CommonActions, useNavigation} from '@react-navigation/native';
 import {Formik, FormikValues} from 'formik';
 import {signInSchema} from '../../validation/authValidation';
 import {ScreensName} from '../../constants';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface InputsValues {
   email: boolean;
@@ -22,23 +23,34 @@ const LogIn = () => {
   const onFocusField = (key: string) => {
     setTouched(prev => ({...prev, [key]: true}));
   };
-  const onLogin = (parameters: any) => {
-    navigation.dispatch(
-      CommonActions.reset({
-        index: 1,
-        routes: [
-          {
-            name: ScreensName.LOGGED_IN_STACK,
-            params: {
-              screen: ScreensName.DRAWER_STACK,
+  const onLogin = async (parameters: any) => {
+    try {
+      const loginData = {
+        email: parameters.email,
+        password: parameters.password,
+      };
+      await AsyncStorage.setItem('loginData', JSON.stringify(loginData));
+      const loginDataGet = await AsyncStorage.getItem('loginData');
+      console.log('DATA FROM LOGIN', loginDataGet);
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 1,
+          routes: [
+            {
+              name: ScreensName.LOGGED_IN_STACK,
               params: {
-                email: parameters.email,
+                screen: ScreensName.DRAWER_STACK,
+                params: {
+                  email: parameters.email,
+                },
               },
             },
-          },
-        ],
-      }),
-    );
+          ],
+        }),
+      );
+    } catch (e) {
+      console.log('Error by loginData was happened', e);
+    }
   };
 
   return (
@@ -71,7 +83,6 @@ const LogIn = () => {
                 onFocus={() => onFocusField('password')}
               />
             </View>
-            {/*<ForgotPassBtn />*/}
             <View style={styles.logIn_wrap}>
               <SignInBtn
                 values={values}
@@ -82,9 +93,6 @@ const LogIn = () => {
           </View>
         )}
       </Formik>
-      {/*<View style={styles.logIn_wrap}>*/}
-      {/*  <Text style={styles.signWith}>{t('signInWith')}</Text>*/}
-      {/*</View>*/}
       <View />
     </View>
   );

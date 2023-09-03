@@ -1,28 +1,29 @@
 import React, {useState} from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import AddPhotoSvg from '../../assets/image/AddPhotoSVG';
+import AddPhoto from '../modals/AddPhoto';
 
-const AddPhotosBtn = () => {
-  const [addPhotos, setAddPhotos] = useState([]);
+const OpenAddPhotosBtn = () => {
+  const [modalVisible, setModalVisible] = useState(false);
 
-  const onAddPhotos = () => {
-    setAddPhotos(prevState => {
-      let newElements = [...prevState];
-      // @ts-ignore
-      newElements.push(addPhotos);
-      return newElements;
-    });
+  const openModal = () => {
+    setModalVisible(true);
   };
+
   return (
     <View style={styles.addPhotoWrap}>
-      <TouchableOpacity onPress={onAddPhotos}>
+      <TouchableOpacity onPress={openModal}>
         <AddPhotoSvg />
       </TouchableOpacity>
+      <AddPhoto
+        modalOnChangeState={setModalVisible}
+        modalCurrentState={modalVisible}
+      />
     </View>
   );
 };
 
-export default AddPhotosBtn;
+export default OpenAddPhotosBtn;
 
 const styles = StyleSheet.create({
   addPhotoWrap: {

@@ -1,4 +1,4 @@
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import {ProfileIMG} from '../../assets/image';
 import ShareBtn from '../buttons/ShareBtn';
 import RedirectBtn from '../buttons/RedirectBtn';
@@ -6,6 +6,7 @@ import React from 'react';
 import {ScreensName} from '../../constants';
 import {styles} from './styles';
 import {useTranslation} from 'react-i18next';
+import LogOutBtn from '../buttons/LogOutBtn';
 
 export default () => {
   const {t} = useTranslation();
@@ -20,27 +21,25 @@ export default () => {
       </View>
       <View style={styles.menuItemWrap}>
         <View style={styles.menuItem}>
-          <Text style={styles.screenText}>Profile</Text>
+          <Text style={styles.screenText}>{t('profile')}</Text>
           <RedirectBtn redirectTo={ScreensName.PROFILE} />
         </View>
         <View style={styles.menuItem}>
-          <Text style={styles.screenText}>Language</Text>
+          <Text style={styles.screenText}>{t('currentLanguage')}</Text>
           <View style={styles.itemElements}>
             <Text>{t('language')}</Text>
             <RedirectBtn redirectTo={ScreensName.LANGUAGE} />
           </View>
         </View>
         <View style={styles.menuItem}>
-          <Text style={styles.screenText}>Invite Friend</Text>
+          <Text style={styles.screenText}>{t('friend')}</Text>
           <View style={styles.itemElements}>
             <ShareBtn />
             <RedirectBtn redirectTo={ScreensName.FRIEND} />
           </View>
         </View>
       </View>
-      <TouchableOpacity style={styles.logOut}>
-        <Text>LogOut</Text>
-      </TouchableOpacity>
+      <LogOutBtn />
     </View>
   );
 };

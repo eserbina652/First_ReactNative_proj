@@ -39,6 +39,12 @@ export type MainNavigationStack = {
   };
 };
 
+export type LoggedOutNavigation = {
+  [ScreensName.LOGGED_OUT_STACK]: {
+    screen?: keyof typeof LoggedOutRoutes;
+  };
+};
+
 export type LoggedInTypeNavigation = {
   [ScreensName.DRAWER_STACK]?: {screen?: keyof typeof drawerNavigation};
   [ScreensName.TAB_BAR_STACK]?: {screen?: keyof typeof tabBarNavigation};
