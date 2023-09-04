@@ -15,4 +15,11 @@ export const styles = StyleSheet.create({
     width: '80%',
     gap: 15,
   },
+  registration_block: {
+    gap: 30,
+  },
+  input_block: {
+    gap: 15,
+    color: '#00000047',
+  },
 });

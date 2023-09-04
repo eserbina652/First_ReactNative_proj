@@ -6,7 +6,7 @@ import React from 'react';
 import {ScreensName} from '../../constants';
 import {styles} from './styles';
 import {useTranslation} from 'react-i18next';
-import LogOutBtn from '../buttons/LogOutBtn';
+import LogOutBtn from '../buttons/accountManage/logOut_deleteAcc/LogOutBtn';
 
 export default () => {
   const {t} = useTranslation();

@@ -7,6 +7,7 @@ import Profile from '../screens/Profile';
 import Languages from '../screens/Languages';
 import NavBar from '../components_/NavBar';
 import tabBarNavigation from './TabBarNavigation';
+import tabBarOptions from './options';
 
 const Drawer = createDrawerNavigator<DrawerTypeNavigation>();
 const width = Dimensions.get('window').width;
@@ -32,36 +33,43 @@ const DrawerNavigation = () => {
         }}
         component={tabBarNavigation}
       />
-      <Drawer.Screen
-        name={ScreensName.PROFILE}
-        options={{
-          header: () => (
-            <NavBar
-              title={'profile'}
-              burgerMenu={false}
-              withIcon={true}
-              filterMenu={true}
-            />
-          ),
-          headerShown: true,
-        }}
-        component={Profile}
-      />
-      <Drawer.Screen
-        name={ScreensName.LANGUAGE}
-        options={{
-          header: () => (
-            <NavBar
-              title={'MY LANGUAGES'}
-              burgerMenu={false}
-              withIcon={true}
-              filterMenu={true}
-            />
-          ),
-          headerShown: true,
-        }}
-        component={Languages}
-      />
+      {/*<Drawer.Screen*/}
+      {/*  name={ScreensName.TAB_BAR_STACK}*/}
+      {/*  options={{*/}
+      {/*    headerShown: false,*/}
+      {/*  }}*/}
+      {/*  component={tabBarOptions}*/}
+      {/*/>*/}
+      {/*<Drawer.Screen*/}
+      {/*  name={ScreensName.PROFILE}*/}
+      {/*  options={{*/}
+      {/*    header: () => (*/}
+      {/*      <NavBar*/}
+      {/*        title={'profile'}*/}
+      {/*        burgerMenu={false}*/}
+      {/*        withIcon={true}*/}
+      {/*        filterMenu={true}*/}
+      {/*      />*/}
+      {/*    ),*/}
+      {/*    headerShown: true,*/}
+      {/*  }}*/}
+      {/*  component={Profile}*/}
+      {/*/>*/}
+      {/*<Drawer.Screen*/}
+      {/*  name={ScreensName.LANGUAGE}*/}
+      {/*  options={{*/}
+      {/*    header: () => (*/}
+      {/*      <NavBar*/}
+      {/*        title={'MY LANGUAGES'}*/}
+      {/*        burgerMenu={false}*/}
+      {/*        withIcon={true}*/}
+      {/*        filterMenu={true}*/}
+      {/*      />*/}
+      {/*    ),*/}
+      {/*    headerShown: true,*/}
+      {/*  }}*/}
+      {/*  component={Languages}*/}
+      {/*/>*/}
     </Drawer.Navigator>
   );
 };

@@ -1,19 +1,19 @@
 import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
-import {styles} from './styles';
-import {InfoSVG} from '../../../assets/image';
+import {InfoSVG} from '../../../../assets/image';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 import {
   LoggedOutTypeNavigation,
   NavigationProp,
   ScreensName,
-} from '../../../constants';
+} from '../../../../constants';
+import {styles} from './styles';
 
 interface SignUpProps {
   text: string;
 }
-const SignUpBtn = ({text}: SignUpProps) => {
+const RegisterAs = ({text}: SignUpProps) => {
   const {t} = useTranslation();
   const navigation =
     useNavigation<NavigationProp<LoggedOutTypeNavigation, string>>();
@@ -33,4 +33,4 @@ const SignUpBtn = ({text}: SignUpProps) => {
   );
 };
 
-export default SignUpBtn;
+export default RegisterAs;

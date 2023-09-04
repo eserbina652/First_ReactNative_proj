@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import Input from '../inputs/Input';
-import DropDownInput from '../inputs/dropDownInput/DropDownInput';
-import AgreeBtn from '../checkBox/AgreeBtn';
+import {Text, View} from 'react-native';
+import SImpleInput from '../inputs/SImpleInput';
+import DropDownInput from '../inputs/DropDownInput';
+import AgreeBtn from '../buttons/checkBox/AgreeBtn';
 import {Formik, FormikValues} from 'formik';
 import {signUpSchema} from '../../validation/authValidation';
-import RegisterBtn from '../buttons/register/RegisterBtn';
+import RegisterBtn from '../buttons/accountManage/signIn_signUp/RegisterBtn';
 import {useTranslation} from 'react-i18next';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 import {
@@ -14,6 +14,7 @@ import {
   ScreensName,
 } from '../../constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {styles} from './styles';
 
 interface TouchedInputsValues {
   username: boolean;
@@ -113,7 +114,7 @@ const Registration = () => {
               <Text>
                 {t('public')} {t('information')}
               </Text>
-              <Input
+              <SImpleInput
                 onChange={text => setFieldValue('username', text)}
                 value={values.username}
                 error={touched.username && errors.username}
@@ -125,14 +126,14 @@ const Registration = () => {
               <Text>
                 {t('private')} {t('information')}
               </Text>
-              <Input
+              <SImpleInput
                 onChange={text => setFieldValue('name', text)}
                 value={values.name}
                 error={touched.name && errors.name}
                 placeholder="name"
                 onFocus={() => onFocusField('name')}
               />
-              <Input
+              <SImpleInput
                 placeholder="email"
                 onChange={text => setFieldValue('email', text)}
                 value={values.email}
@@ -145,7 +146,7 @@ const Registration = () => {
               <Text>
                 {t('account')} {t('security')}
               </Text>
-              <Input
+              <SImpleInput
                 security={true}
                 onChange={text => setFieldValue('password', text)}
                 value={values.password}
@@ -153,7 +154,7 @@ const Registration = () => {
                 placeholder="password"
                 onFocus={() => onFocusField('password')}
               />
-              <Input
+              <SImpleInput
                 security={true}
                 onChange={text => setFieldValue('passwordConfirmation', text)}
                 value={values.passwordConfirmation}
@@ -190,13 +191,3 @@ const Registration = () => {
 };
 
 export default Registration;
-
-const styles = StyleSheet.create({
-  registration_block: {
-    gap: 30,
-  },
-  input_block: {
-    gap: 15,
-    color: '#00000047',
-  },
-});

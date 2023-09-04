@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import AddPhotoSvg from '../../assets/image/AddPhotoSVG';
-import AddPhoto from '../modals/AddPhoto';
+import {TouchableOpacity, View} from 'react-native';
+import AddPhotoSvg from '../../../../assets/image/AddPhotoSVG';
+import AddPhoto from '../../../modals/AddPhoto';
+import {styles} from '../index';
 
 const OpenAddPhotosBtn = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -24,9 +25,3 @@ const OpenAddPhotosBtn = () => {
 };
 
 export default OpenAddPhotosBtn;
-
-const styles = StyleSheet.create({
-  addPhotoWrap: {
-    alignSelf: 'center',
-  },
-});

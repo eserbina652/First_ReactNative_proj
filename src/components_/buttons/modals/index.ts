@@ -1,4 +1,3 @@
-// '#FF009015',
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
@@ -16,6 +15,9 @@ export const styles = StyleSheet.create({
   },
   login_btn_text: {
     color: 'white',
+    alignSelf: 'center',
+  },
+  addPhotoWrap: {
     alignSelf: 'center',
   },
 });

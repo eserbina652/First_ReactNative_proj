@@ -6,6 +6,8 @@ import Profile from '../screens/Profile';
 // import loggedInStack from '../navigation/LoggedInStack';
 import tabBarNavigation from '../navigation/TabBarNavigation';
 import drawerNavigation from '../navigation/DrawerNavigation';
+import drawerContent from '../components_/DrawerContent';
+import tabBarOptions from '../navigation/options';
 export enum ScreensName {
   SIGN_IN = 'SignIn',
   SIGN_UP = 'SignUp',
@@ -60,7 +62,9 @@ export type LoggedOutTypeNavigation = {
 export type DrawerTypeNavigation = {
   [ScreensName.LANGUAGE]: {screen?: keyof typeof Languages};
   [ScreensName.PROFILE]: {screen?: keyof typeof Profile};
-  [ScreensName.TAB_BAR_STACK]: {screen?: keyof typeof TabBarRoutes};
+  [ScreensName.DRAWER_STACK]: {screen?: keyof typeof drawerContent};
+  [ScreensName.TAB_BAR_STACK]: {screen?: keyof typeof tabBarNavigation};
+  [ScreensName.TAB_BAR_STACK]: {screen?: keyof typeof tabBarOptions};
 };
 
 export type TabTypeNavigation = {

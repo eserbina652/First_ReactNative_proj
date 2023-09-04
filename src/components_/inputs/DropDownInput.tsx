@@ -7,9 +7,9 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import {styles} from '../styles';
-import {countries} from '../../../api/data/dropdownData';
-import {DropDownImgSVG} from '../../../assets/image';
+import {styles} from './styles';
+import {countries} from '../../api/data/dropdownData';
+import {DropDownImgSVG} from '../../assets/image';
 import {useTranslation} from 'react-i18next';
 
 interface DropDownInputProps {

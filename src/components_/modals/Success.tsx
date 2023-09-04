@@ -1,8 +1,8 @@
 import React from 'react';
-import {Modal, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {styles} from '../buttons/modalssBtns';
+import {Modal, Text, TouchableOpacity, View} from 'react-native';
 import SuccessSvg from '../../assets/image/SuccessSVG';
 import {ModalProps} from './interface';
+import {styles} from './styles';
 
 const Success = ({modalOnChangeState, modalCurrentState}: ModalProps) => {
   const closeModal = () => {
@@ -14,14 +14,12 @@ const Success = ({modalOnChangeState, modalCurrentState}: ModalProps) => {
       transparent={true}
       visible={modalCurrentState}
       onRequestClose={closeModal}>
-      <View style={stylesDefault.modalContainer}>
-        <View style={stylesDefault.modalContent}>
+      <View style={styles.modalContainer}>
+        <View style={styles.modalContentSuccess}>
           <SuccessSvg />
-          <View style={stylesDefault.textWrap}>
-            <Text style={[stylesDefault.text, stylesDefault.header]}>
-              Success!
-            </Text>
-            <Text style={stylesDefault.text}>
+          <View style={styles.textWrap}>
+            <Text style={[styles.text, styles.headerSuccess]}>Success!</Text>
+            <Text style={styles.text}>
               Your profile has been successfully updated
             </Text>
           </View>
@@ -35,30 +33,3 @@ const Success = ({modalOnChangeState, modalCurrentState}: ModalProps) => {
 };
 
 export default Success;
-
-const stylesDefault = StyleSheet.create({
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  },
-  modalContent: {
-    backgroundColor: 'white',
-    padding: 20,
-    borderRadius: 10,
-    alignItems: 'center',
-    gap: 30,
-  },
-  textWrap: {
-    alignItems: 'center',
-    gap: 12,
-  },
-  text: {
-    maxWidth: 250,
-    textAlign: 'center',
-  },
-  header: {
-    color: 'black',
-  },
-});

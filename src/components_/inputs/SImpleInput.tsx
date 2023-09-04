@@ -14,7 +14,7 @@ interface SimpleInputProps {
   onFocus?: () => void;
   security?: boolean;
 }
-const Input = ({
+const SImpleInput = ({
   placeholder,
   inputStyles,
   onChange,
@@ -57,4 +57,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export default SImpleInput;

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import SignUpBtn from '../buttons/signUp/SignUpBtn';
+import RegisterAs from '../buttons/accountManage/signIn_signUp/RegisterAs';
 import {styles} from './styles';
 import {useTranslation} from 'react-i18next';
 const Register = () => {
@@ -9,8 +9,8 @@ const Register = () => {
     <View style={styles.footer_container}>
       <Text>{t('dontHaveAnAccount')}</Text>
       <View style={styles.register_wrap}>
-        <SignUpBtn text="Music Lover" />
-        <SignUpBtn text="Artist" />
+        <RegisterAs text="Music Lover" />
+        <RegisterAs text="Artist" />
       </View>
     </View>
   );

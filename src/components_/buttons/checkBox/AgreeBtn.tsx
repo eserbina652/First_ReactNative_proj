@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {styles} from './styles';
-import {AgreeSignSVG} from '../../assets/image';
+import {AgreeSignSVG} from '../../../assets/image';
 import {useTranslation} from 'react-i18next';
 
 interface AgreeBtnProps {

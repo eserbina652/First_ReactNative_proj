@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 interface SimpleInputProps {
   placeholder: string;
 }
-const SimpleInput = ({placeholder}: SimpleInputProps) => {
+const ProfileInput = ({placeholder}: SimpleInputProps) => {
   const {t} = useTranslation();
   const [value, setValue] = useState('');
   const translatedPlaceholder = t(placeholder) || placeholder;
@@ -19,7 +19,7 @@ const SimpleInput = ({placeholder}: SimpleInputProps) => {
   );
 };
 
-export default SimpleInput;
+export default ProfileInput;
 
 const styles = StyleSheet.create({
   input: {

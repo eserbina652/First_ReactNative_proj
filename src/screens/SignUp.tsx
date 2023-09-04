@@ -5,7 +5,7 @@ import Registration from '../components_/registration/Registration';
 import {styles} from './styles';
 import {useTranslation} from 'react-i18next';
 import {RouteProp, useRoute} from '@react-navigation/native';
-import ChangeLangBtn from '../components_/buttons/ChangeLangBtn';
+import ChangeLangBtn from '../components_/buttons/lang/ChangeLangBtn';
 
 type RootStackParamList = {
   SignUp: {registerAs: string};

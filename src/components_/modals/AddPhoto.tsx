@@ -1,18 +1,11 @@
 import React, {useState} from 'react';
-import {
-  Modal,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import {styles} from '../buttons/modalssBtns';
+import {Modal, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {ModalProps} from './interface';
 import {TabToAddSVG} from '../../assets/image';
 import {Formik, FormikValues} from 'formik';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useTranslation} from 'react-i18next';
+import {styles} from './styles';
 type PhotoType = 'jpeg' | 'png' | 'gif' | null;
 interface PhotoDataI {
   photo: PhotoType;
@@ -51,12 +44,12 @@ const AddPhoto = ({modalCurrentState, modalOnChangeState}: ModalProps) => {
       transparent={true}
       visible={modalCurrentState}
       onRequestClose={closeModal}>
-      <View style={stylesDefault.modalContainer}>
-        <View style={stylesDefault.modalContent}>
-          <View style={[stylesDefault.header, stylesDefault.paddings]}>
-            <Text style={stylesDefault.headerText}>{t('uploadPhotosFor')}</Text>
+      <View style={styles.modalContainer}>
+        <View style={styles.modalContent}>
+          <View style={[styles.header, styles.paddings]}>
+            <Text style={styles.headerText}>{t('uploadPhotosFor')}</Text>
             <TouchableOpacity onPress={closeModal}>
-              <Text style={stylesDefault.closeBtn}>×</Text>
+              <Text style={styles.closeBtn}>×</Text>
             </TouchableOpacity>
           </View>
           <Formik
@@ -64,32 +57,32 @@ const AddPhoto = ({modalCurrentState, modalOnChangeState}: ModalProps) => {
             onSubmit={addPhotoInfo}>
             {({values, isValid, setFieldValue}: FormikValues) => (
               <View>
-                <View style={stylesDefault.formatsSection}>
-                  <View style={stylesDefault.formatsBlock}>
-                    <View style={stylesDefault.formatEl}>
+                <View style={styles.formatsSection}>
+                  <View style={styles.formatsBlock}>
+                    <View style={styles.formatEl}>
                       <Text>.jpeg</Text>
                     </View>
-                    <View style={stylesDefault.formatEl}>
+                    <View style={styles.formatEl}>
                       <Text>.png</Text>
                     </View>
-                    <View style={stylesDefault.formatEl}>
-                      <Text style={stylesDefault.formatElText}>.gif</Text>
+                    <View style={styles.formatEl}>
+                      <Text>.gif</Text>
                     </View>
                   </View>
                   <TouchableOpacity>
                     <TabToAddSVG />
                   </TouchableOpacity>
                 </View>
-                <View style={stylesDefault.footerSection}>
-                  <View style={stylesDefault.inputsBlock}>
+                <View style={styles.footerSection}>
+                  <View style={styles.inputsBlock}>
                     <TextInput
-                      style={stylesDefault.input}
+                      style={styles.input}
                       placeholder={inputsPlaceholder.name}
                       onChangeText={text => setFieldValue('name', text)}
                       value={values.name}
                     />
                     <TextInput
-                      style={stylesDefault.input}
+                      style={styles.input}
                       placeholder={inputsPlaceholder.decr}
                       onChangeText={text => setFieldValue('description', text)}
                       value={values.description}
@@ -114,83 +107,3 @@ const AddPhoto = ({modalCurrentState, modalOnChangeState}: ModalProps) => {
 };
 
 export default AddPhoto;
-
-const stylesDefault = StyleSheet.create({
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  },
-  modalContent: {
-    backgroundColor: 'white',
-    borderRadius: 10,
-    alignItems: 'center',
-    width: '75%',
-    paddingBottom: 36,
-    // gap: 30,
-  },
-  textWrap: {
-    // alignItems: 'center',
-    // gap: 12,
-  },
-  formatsSection: {
-    backgroundColor: '#FAFAFA',
-    paddingVertical: 17,
-    paddingHorizontal: 40,
-    gap: 20,
-    margin: 25,
-    borderRadius: 6,
-    borderWidth: 1,
-    borderColor: '#EFEFEF',
-  },
-  inputsBlock: {
-    paddingHorizontal: 25,
-  },
-  input: {
-    minWidth: '80%',
-    // maxWidth: '100%',
-    alignItems: 'flex-start',
-    color: 'rgba(0,0,0,0.67)',
-    borderBottomWidth: 1,
-    borderBottomColor: 'rgba(0,0,0,0.06)',
-  },
-  formatEl: {
-    backgroundColor: 'white',
-    borderRadius: 3,
-    paddingVertical: 2,
-    paddingHorizontal: 6,
-  },
-  formatElText: {
-    // fontSize: 14,
-  },
-  formatsBlock: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  closeBtn: {
-    maxWidth: 250,
-    fontSize: 24,
-  },
-  footerSection: {
-    gap: 36,
-    // paddingVertical: 36,
-    // paddingHorizontal: 25,
-  },
-  paddings: {
-    paddingVertical: 15,
-    paddingHorizontal: 25,
-  },
-  header: {
-    backgroundColor: '#F1F1F1',
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  headerText: {
-    color: '#3A3A3A',
-    fontWeight: '600',
-    fontSize: 14,
-  },
-});

@@ -1,33 +1,33 @@
 import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 import {styles} from './styles';
-import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
-import {ScreensName} from '../../../constants';
-
-interface SignInBtnProps {
-  handleSubmit: (parameters: any) => void;
+import {
+  NavigationProp,
+  ScreensName,
+  TabTypeNavigation,
+} from '../../../../constants';
+interface RegisterBtnProps {
+  handleSubmit: () => void;
   disabled: boolean;
-  values: object;
 }
-const SignInBtn = ({handleSubmit, disabled, values}: SignInBtnProps) => {
-  const navigation = useNavigation();
+const RegisterBtn = ({handleSubmit, disabled}: RegisterBtnProps) => {
+  const navigation = useNavigation<NavigationProp<TabTypeNavigation, string>>();
   const navigateToTabStack = () => {
     // @ts-ignore
     navigation.navigate(ScreensName.DRAWER_STACK);
   };
-  const {t} = useTranslation();
   return (
     <TouchableOpacity
       onPress={() => {
-        handleSubmit(values);
+        handleSubmit();
         navigateToTabStack();
       }}
       disabled={disabled}
       style={[styles.active_btn, disabled && styles.disabled_btn]}>
-      <Text style={styles.login_btn_text}>{t('logIn')}</Text>
+      <Text style={styles.login_btn_text}>Log In</Text>
     </TouchableOpacity>
   );
 };
 
-export default SignInBtn;
+export default RegisterBtn;

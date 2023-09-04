@@ -2,8 +2,8 @@ import {StyleSheet, Text, View} from 'react-native';
 import BackBtn from '../buttons/BackBtn';
 import {LeftArrowSVG} from '../../assets/image';
 import {useTranslation} from 'react-i18next';
-import BurgerMenuBtn from '../buttons/menus/BurgerMenu/BurgerMenuBtn';
-import FilterBtn from '../buttons/menus/FilterMenu/FilterBtn';
+import BurgerMenuBtn from '../buttons/menus/BurgerMenuBtn';
+import FilterBtn from '../buttons/menus/FilterBtn';
 
 interface NavbarProps {
   title: string;

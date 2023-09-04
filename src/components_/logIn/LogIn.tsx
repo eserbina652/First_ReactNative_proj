@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import SignInBtn from '../buttons/register/SignInBtn';
-import Input from '../inputs/Input';
+import SignInBtn from '../buttons/accountManage/signIn_signUp/SignInBtn';
+import SImpleInput from '../inputs/SImpleInput';
 import Logo from '../logo/Logo';
 import {styles} from './styles';
 import {CommonActions, useNavigation} from '@react-navigation/native';
@@ -67,14 +67,14 @@ const LogIn = () => {
         {({values, isValid, errors, setFieldValue}: FormikValues) => (
           <View>
             <View>
-              <Input
+              <SImpleInput
                 onChange={text => setFieldValue('email', text)}
                 value={values.email}
                 error={touched.email && errors.email}
                 onFocus={() => onFocusField('email')}
                 placeholder="loginPlaceholder"
               />
-              <Input
+              <SImpleInput
                 security={true}
                 onChange={text => setFieldValue('password', text)}
                 value={values.password}
