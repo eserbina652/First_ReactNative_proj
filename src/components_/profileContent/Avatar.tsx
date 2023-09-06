@@ -13,9 +13,9 @@ const Avatar = () => {
   };
   return (
     <View style={styles.imageWrap}>
-      <Image style={styles.image} source={defaultAvatar} />
-      <TouchableOpacity style={styles.changePhotoBtn} onPress={onChangeAvatar}>
-        <Image source={avatar} />
+      <Image style={styles.image} source={avatar} />
+      <TouchableOpacity style={styles.changePhotoBtn}>
+        <ChangeAvatarSVG />
       </TouchableOpacity>
     </View>
   );

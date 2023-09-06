@@ -12,6 +12,15 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 16,
     alignSelf: 'center',
+    shadowColor: '#ff0091',
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.39,
+    shadowRadius: 8.3,
+
+    elevation: 13,
   },
   login_btn_text: {
     color: 'white',

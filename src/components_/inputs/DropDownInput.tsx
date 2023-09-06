@@ -12,30 +12,31 @@ import {countries} from '../../api/data/dropdownData';
 import {DropDownImgSVG} from '../../assets/image';
 import {useTranslation} from 'react-i18next';
 
+const options = countries;
+
 interface DropDownInputProps {
   inputStyle?: ViewStyle;
+  currentOption: string;
+  onChange: (text: string, country: string) => void;
 }
-const options = countries;
-const DropDownInput = ({inputStyle}: DropDownInputProps) => {
+const DropDownInput = ({
+  inputStyle,
+  onChange,
+  currentOption,
+}: DropDownInputProps) => {
   const {t} = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('');
-
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleOptionSelect = (option: string) => {
-    setSelectedOption(option);
-    setIsOpen(false);
-  };
   const chosenCountry = t('chooseCountry');
 
   return (
     <View>
       <View style={[styles.inputs, styles.dropdownInput]}>
         <TextInput
-          value={selectedOption}
+          value={currentOption}
           placeholder={chosenCountry}
           style={[inputStyle]}
         />
@@ -58,7 +59,7 @@ const DropDownInput = ({inputStyle}: DropDownInputProps) => {
                 key={item.id}
                 style={styles.option}
                 onPress={() =>
-                  handleOptionSelect(`${item.name} ${item.flag_emoji}`)
+                  onChange('country', `${item.name} ${item.flag_emoji}`)
                 }>
                 <Text>{item.name}</Text>
                 <Text>{item.flag_emoji}</Text>

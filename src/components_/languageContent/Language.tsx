@@ -6,28 +6,23 @@ import {AgreeSignSVG} from '../../assets/image';
 
 interface LanguageProps {
   item: ILanguages;
+  onPress: (item: ILanguages) => void;
+  chosen: string;
 }
-const Language = ({item}: LanguageProps) => {
-  const {t, i18n} = useTranslation();
-  const currentLanguage = i18n.language;
-  const [chosen, setChosen] = useState(item.translateKey === currentLanguage);
-
-  useEffect(() => {
-    setChosen(item.translateKey === currentLanguage);
-  }, [currentLanguage, item.translateKey]);
-
-  const changeCurrLang = () => {
-    i18n.changeLanguage(item.translateKey);
-  };
+const Language = ({item, onPress, chosen}: LanguageProps) => {
+  const {t} = useTranslation();
   return (
     <TouchableOpacity
-      onPress={changeCurrLang}
-      style={[styles.elContainer, chosen && styles.chosen]}>
+      onPress={() => onPress(item)}
+      style={[
+        styles.elContainer,
+        chosen === item.translateKey && styles.chosen,
+      ]}>
       <View style={styles.header}>
         <Text>{item.img}</Text>
         <Text>{t(item.langName)}</Text>
       </View>
-      {chosen && <AgreeSignSVG />}
+      {chosen === item.translateKey && <AgreeSignSVG />}
     </TouchableOpacity>
   );
 };

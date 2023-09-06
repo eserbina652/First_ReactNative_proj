@@ -7,14 +7,14 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
-  modalContent: {
+  modalContentSuccess: {
     backgroundColor: 'white',
     padding: 20,
     borderRadius: 10,
     alignItems: 'center',
     gap: 30,
   },
-  modalContentSuccess: {
+  modalContent: {
     backgroundColor: 'white',
     borderRadius: 10,
     alignItems: 'center',

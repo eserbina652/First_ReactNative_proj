@@ -1,17 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
-import {languages} from '../api/data/languagesData';
+import {ILanguages, languages} from '../api/data/languagesData';
 import Language from '../components_/languageContent/Language';
 import SimpleBtn from '../components_/buttons/SimpleBtn';
-
+import {useTranslation} from 'react-i18next';
+export type Nullable<T> = T | null;
 const Languages = () => {
+  const {i18n} = useTranslation();
+  const currentLanguage = i18n.language;
+  const [chosen, setChosen] = useState(currentLanguage);
+
+  // useEffect(() => {
+  // }, [currentLanguage, item.translateKey]);
+
+  const handleChoseLang = (item: ILanguages) => {
+    setChosen(item.translateKey);
+  };
+  const changeCurrLang = () => {
+    i18n.changeLanguage(chosen);
+  };
   return (
     <View style={styles.languages}>
       <FlatList
         data={languages}
-        renderItem={({item}) => <Language item={item} key={item.id} />}
+        renderItem={({item}) => (
+          <Language
+            chosen={chosen}
+            onPress={handleChoseLang}
+            item={item}
+            key={item.id}
+          />
+        )}
       />
-      <SimpleBtn text={'Ok'} />
+      <SimpleBtn text={'Ok'} onPress={changeCurrLang} />
     </View>
   );
 };

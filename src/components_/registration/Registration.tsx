@@ -13,8 +13,9 @@ import {
   NavigationProp,
   ScreensName,
 } from '../../constants';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {styles} from './styles';
+import EncryptedStorage from 'react-native-encrypted-storage';
+import {countries} from '../../api/data/dropdownData';
 
 interface TouchedInputsValues {
   username: boolean;
@@ -33,6 +34,7 @@ interface InputsValues {
   passwordConfirmation: string;
   agreeSecond: boolean;
   agreeFirst: boolean;
+  country: string;
 }
 const Registration = () => {
   const {t} = useTranslation();
@@ -54,18 +56,15 @@ const Registration = () => {
         username: parameters.username,
         name: parameters.name,
         email: parameters.email,
-        //Додати країну
+        country: parameters.country,
       };
-      await AsyncStorage.setItem('loginData', JSON.stringify(registerData));
-      const registerDataGet = await AsyncStorage.getItem('registerData');
+      await EncryptedStorage.setItem(
+        'registerData',
+        JSON.stringify(registerData),
+      );
+      // userProfileData.push(registerData);
+      const registerDataGet = await EncryptedStorage.getItem('registerData');
       console.log('DATA FROM LOGIN', registerDataGet);
-      // navigation.navigate(ScreensName.TAB_BAR_STACK, {
-      //   screen: ScreensName.TAB_BAR_STACK,
-      //   // @ts-ignore
-      //   params: {
-      //     name: parameters.name,
-      //   },
-      // });
       navigation.dispatch(
         CommonActions.reset({
           index: 1,
@@ -73,10 +72,7 @@ const Registration = () => {
             {
               name: ScreensName.LOGGED_IN_STACK,
               params: {
-                screen: ScreensName.DRAWER_STACK,
-                params: {
-                  email: parameters.email,
-                },
+                email: parameters.email,
               },
             },
           ],
@@ -86,12 +82,14 @@ const Registration = () => {
       console.log('Error occurred by registration', e);
     }
   };
+
   return (
     <View>
       <Formik
         initialValues={{
           username: '',
           password: '',
+          country: '',
           reTypePass: '',
           name: '',
           email: '',
@@ -140,7 +138,10 @@ const Registration = () => {
                 error={touched.email && errors.email}
                 onFocus={() => onFocusField('email')}
               />
-              <DropDownInput />
+              <DropDownInput
+                onChange={setFieldValue}
+                currentOption={values.country}
+              />
             </View>
             <View style={styles.input_block}>
               <Text>

@@ -4,13 +4,28 @@ import React from 'react';
 import {MainNavigationStack, ScreensName} from '../constants';
 import LoggedOutStack from './LoggedOutStack';
 import LoggedInStack from './LoggedInStack';
+import EncryptedStorage from 'react-native-encrypted-storage';
+import {UserDataI, userProfileData} from '../api/data/profileData';
 // import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const MainStack = createNativeStackNavigator<MainNavigationStack>();
 
 export default () => {
-  // const getData = async () => {
-  //   await AsyncStorage.getItem('loginData');
+  // const getLoginData = async () => {
+  //   const loginData = await EncryptedStorage.getItem('loginData');
+  //   if (loginData) {
+  //     const parsedData = await JSON.parse(loginData);
+  //     parsedData.filter(
+  //       (el: UserDataI) =>
+  //         el.privatInfo.password === parsedData.privatInfo.password,
+  //     );
+  //   }
+  // };
+
+  // const getRegistrationData = async () => {
+  //   const registerData = await EncryptedStorage.getItem('registerData');
+  //   if (registerData)
+  //   const parsedData = JSON.parse();
   // };
 
   return (

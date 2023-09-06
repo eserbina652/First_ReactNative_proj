@@ -8,30 +8,38 @@ import {CommonActions, useNavigation} from '@react-navigation/native';
 import {Formik, FormikValues} from 'formik';
 import {signInSchema} from '../../validation/authValidation';
 import {ScreensName} from '../../constants';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import EncryptedStorage from 'react-native-encrypted-storage';
 
-interface InputsValues {
+interface InputsTouchedValues {
   email: boolean;
   password: boolean;
 }
+interface InputsValues {
+  email: string;
+  password: string;
+}
+
 const LogIn = () => {
   const navigation = useNavigation();
-  const [touched, setTouched] = useState<InputsValues>({
+  const [touched, setTouched] = useState<InputsTouchedValues>({
     email: false,
     password: false,
   });
   const onFocusField = (key: string) => {
     setTouched(prev => ({...prev, [key]: true}));
   };
-  const onLogin = async (parameters: any) => {
+  const onLogin = async (parameters: InputsValues) => {
     try {
       const loginData = {
         email: parameters.email,
         password: parameters.password,
       };
-      await AsyncStorage.setItem('loginData', JSON.stringify(loginData));
-      const loginDataGet = await AsyncStorage.getItem('loginData');
-      console.log('DATA FROM LOGIN', loginDataGet);
+      await EncryptedStorage.setItem('loginData', JSON.stringify(loginData));
+      // const loginDataGet = await EncryptedStorage.getItem('loginData');
+      // if (loginDataGet) {
+      //   const parsedLoginData = await JSON.parse(loginDataGet)
+      //   const isUser = userProfileData.filter
+      // }
       navigation.dispatch(
         CommonActions.reset({
           index: 1,
@@ -39,10 +47,7 @@ const LogIn = () => {
             {
               name: ScreensName.LOGGED_IN_STACK,
               params: {
-                screen: ScreensName.DRAWER_STACK,
-                params: {
-                  email: parameters.email,
-                },
+                email: parameters.email,
               },
             },
           ],

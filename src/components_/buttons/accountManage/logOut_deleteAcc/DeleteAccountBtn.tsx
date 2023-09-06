@@ -6,15 +6,15 @@ import {
   NavigationProp,
   ScreensName,
 } from '../../../../constants';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import EncryptedStorage from 'react-native-encrypted-storage';
 
 const DeleteAccountBtn = () => {
   const navigation =
     useNavigation<NavigationProp<LoggedOutNavigation, string>>();
   const onLogOut = async () => {
     try {
-      await AsyncStorage.removeItem('loginData');
-      const loginDataGet = await AsyncStorage.getItem('loginData');
+      await EncryptedStorage.removeItem('loginData');
+      const loginDataGet = await EncryptedStorage.getItem('loginData');
       // @ts-ignore
       navigation.navigate(ScreensName.LOGGED_OUT_STACK);
       console.log('DATA FROM LOGIN OUT', loginDataGet);

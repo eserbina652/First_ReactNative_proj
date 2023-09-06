@@ -3,9 +3,9 @@ import {Modal, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {ModalProps} from './interface';
 import {TabToAddSVG} from '../../assets/image';
 import {Formik, FormikValues} from 'formik';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useTranslation} from 'react-i18next';
 import {styles} from './styles';
+import EncryptedStorage from 'react-native-encrypted-storage';
 type PhotoType = 'jpeg' | 'png' | 'gif' | null;
 interface PhotoDataI {
   photo: PhotoType;
@@ -33,7 +33,7 @@ const AddPhoto = ({modalCurrentState, modalOnChangeState}: ModalProps) => {
           description: parameters?.description,
         },
       ]);
-      await AsyncStorage.setItem('photoData', JSON.stringify(photosData));
+      await EncryptedStorage.setItem('photoData', JSON.stringify(photosData));
     } catch (e) {
       console.log('Error was occurred by adding photo', e);
     }

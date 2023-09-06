@@ -1,20 +1,27 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StyleSheet, TextInput} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 interface SimpleInputProps {
   placeholder: string;
+  inputValue?: string;
+  onChange: (key: string, text: string) => void;
 }
-const ProfileInput = ({placeholder}: SimpleInputProps) => {
+const ProfileInput = ({
+  placeholder,
+  inputValue,
+  onChange,
+}: SimpleInputProps) => {
   const {t} = useTranslation();
-  const [value, setValue] = useState('');
   const translatedPlaceholder = t(placeholder) || placeholder;
+
   return (
     <TextInput
+      // numberOfLines={2}
       style={styles.input}
       placeholder={translatedPlaceholder}
-      value={value}
-      onChangeText={text => setValue(text)}
+      value={inputValue}
+      onChangeText={text => onChange(placeholder, text)}
     />
   );
 };

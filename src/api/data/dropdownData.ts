@@ -1,4 +1,17 @@
-export const countries = [
+export interface ICountries {
+  id: string;
+  name: string;
+  code: string;
+  continent: IContinent;
+  phone_code: string;
+  flag_emoji: string;
+}
+
+interface IContinent {
+  id: string;
+  name: string;
+}
+export const countries: ICountries[] = [
   {
     id: '39e8e5d4-73cc-46b3-bd93-a292581d6b57',
     name: 'Andorra',

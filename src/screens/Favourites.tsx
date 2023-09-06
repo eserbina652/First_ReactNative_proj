@@ -1,7 +1,7 @@
 import React from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
 import {favourites} from '../api/data/favouritesData';
-import MusicElement from '../components_/favouritesContent/musicElement/MusicElement';
+import MusicElement from '../components_/favouritesContent/MusicElement';
 
 const options = favourites;
 const Favourites = () => {

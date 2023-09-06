@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
-import {FavoritesSVG, FullFavouritesSVG} from '../../../assets/image';
-import {FavouritesData} from '../../../api/data/favouritesData';
+import {FavoritesSVG, FullFavouritesSVG} from '../../assets/image';
+import {FavouritesData} from '../../api/data/favouritesData';
 import {styles} from './styles';
 import {useTranslation} from 'react-i18next';
 
